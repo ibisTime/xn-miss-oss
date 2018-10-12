@@ -1,0 +1,28 @@
+.usercard-wrapper {
+  display: flex;
+  padding: 44px 20px;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1;
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+.usercard-wrapper .usercard-title {
+
+}
+.usercard-wrapper .usercard-title .title-main {
+  font-size: 16px;
+}
+.usercard-wrapper .usercard-title .title-sub {
+  padding-top: 4px;
+  font-size: 12px;
+}
+.usercard-wrapper .normal-content {
+  font-size: 38px;
+}
+.usercard-wrapper .normal-content label {
+  font-size: 16px;
+}

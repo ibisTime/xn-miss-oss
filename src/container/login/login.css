@@ -1,0 +1,112 @@
+.login-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./bg.png');
+  background-size: 100% 100%;
+}
+.login-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 970px;
+  height: 560px;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px #167A62;
+}
+.login-wrap .login-img, .login-wrap .login-form {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.login-wrap .login-img {
+  background-image: url('./tree.png');
+  background-size: 100% 100%;
+}
+.login-wrap .login-form {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background: #fff;
+}
+.login-wrap .login-form .login-logo {
+  margin-top: 64.4px;
+  margin-bottom: 48px;
+  height: 65.6px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('./logo.png');
+}
+.login-wrap .login-form-wrapper {
+  padding: 0 42px;
+}
+.login-wrap .login-form-wrapper .ant-input {
+  height: 56px;
+  border: 1px #979797 solid;
+  font-size: 16px;
+}
+.login-wrap .login-form-wrapper .ant-row.ant-form-item {
+  margin-bottom: 34px;
+}
+.login-wrap .login-form-wrapper .ant-btn-primary.login-form-button {
+  height: 56px;
+  width: 100%;
+  font-size: 18px;
+  border: 1px solid #23ad8c;
+  background-color: #23ad8c;
+}
+.login-wrap .login-form-wrapper .ant-btn-primary.login-form-button:hover {
+  border-color: #29be9b;
+  background-color: #29be9b;
+}
+.login-wrap .login-form .bottom-tip {
+  padding: 2px 42px 0;
+  text-align: center;
+}
+.login-wrap .login-form .bottom-tip .tip-border {
+  background: #e6e6e6;
+  border-radius: 100px;
+  height: 2px;
+  width: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.login-wrap .login-form .bottom-tip .tip-text {
+  font-size: 18px;
+  color: #999;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 14px;
+}
+.login-wrap .login-form .bottom-tip .tip-text a {
+  color: #23ad8c;
+}
+.login-wrap .login-form .bottom-tip .tip-text a:hover, .login-wrap .login-form .bottom-tip .tip-text a:active {
+  color: #29be9b;
+}
+
+/*注册*/
+.register-wrap.login-wrap .login-form-wrapper .ant-btn-primary,
+.register-wrap.login-wrap .login-form-wrapper .ant-input {
+  height: 50px;
+}
+.register-wrap.login-wrap .login-form-wrapper .ant-row.ant-form-item {
+  margin-bottom: 28px;
+}
+.login-wrap .has-error .ant-form-explain {
+  position: absolute;
+}
+.register-wrap.login-wrap .login-form-wrapper button.ant-btn.smsCapt {
+  height: 50px;
+  border: 1px solid #23ad8c;
+  color: #23ad8c;
+  min-width: 102px;
+}
+.login-wrap .login-form-wrapper button.ant-btn.smsCapt:hover {
+  border-color: #29be9b;
+  color: #29be9b;
+}

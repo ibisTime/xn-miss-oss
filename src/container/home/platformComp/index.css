@@ -1,0 +1,31 @@
+.platform-wrapper {
+  display: flex;
+}
+.platform-wrapper .avatar-wrapper {
+  padding-top: 41.4px;
+  width: 200px;
+  height: 220px;
+  flex: 0 0 200px;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 1;
+  background: #fff;
+}
+.platform-wrapper .avatar-wrapper .user-name {
+  padding-top: 11.6px;
+  font-size: 18px;
+  color: #333333;
+}
+.platform-wrapper .avatar-wrapper .user-role {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 5px 10px;
+  border: 1px solid #23AD8C;
+  border-radius: 100px;
+  font-size: 14px;
+  color: #23AD8C;
+}
+.platform-wrapper .platform-content {
+  flex: 1;
+  padding-left: 20px;
+}
