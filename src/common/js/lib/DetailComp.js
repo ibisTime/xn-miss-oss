@@ -10,32 +10,32 @@ import {
 import fetch from 'common/js/fetch';
 import { UPLOAD_URL, PIC_PREFIX, PIC_BASEURL_L, formItemLayout,
   validateFieldsAndScrollOption, DATE_FORMAT, MONTH_FORMAT, DATETIME_FORMAT } from 'common/js/config';
-// import cityData from 'common/js/lib/city';
-// import CInput from 'component/cInput/cInput';
-// import CNormalTextArea from 'component/cNormalTextArea/cNormalTextArea';
-// import CTextArea from 'component/cTextArea/cTextArea';
-// import CSelect from 'component/cSelect/cSelect';
-// import CSearchSelect from 'component/cSearchSelect/cSearchSelect';
-// import CUpload from 'component/cUpload/cUpload';
-// import CDate from 'component/cDate/cDate';
-// import CRangeDate from 'component/cRangeDate/cRangeDate';
-// import CMonth from 'component/cMonth/cMonth';
-// import CCitySelect from 'component/cCitySelect/cCitySelect';
-// import CCheckbox from 'component/cCheckbox/cCheckbox';
-// import CTreeSelect from 'component/cTreeSelect/cTreeSelect';
-const cityData = asyncComponent(() => import('common/js/lib/city'));
-const CInput = asyncComponent(() => import('component/cInput/cInput'));
-const CNormalTextArea = asyncComponent(() => import('component/cNormalTextArea/cNormalTextArea'));
-const CTextArea = asyncComponent(() => import('component/cTextArea/cTextArea'));
-const CSelect = asyncComponent(() => import('component/cSelect/cSelect'));
-const CSearchSelect = asyncComponent(() => import('component/cSearchSelect/cSearchSelect'));
-const CUpload = asyncComponent(() => import('component/cUpload/cUpload'));
-const CDate = asyncComponent(() => import('component/cDate/cDate'));
-const CRangeDate = asyncComponent(() => import('component/cRangeDate/cRangeDate'));
-const CMonth = asyncComponent(() => import('component/cMonth/cMonth'));
-const CCitySelect = asyncComponent(() => import('component/cCitySelect/cCitySelect'));
-const CCheckbox = asyncComponent(() => import('component/cCheckbox/cCheckbox'));
-const CTreeSelect = asyncComponent(() => import('component/cTreeSelect/cTreeSelect'));
+import cityData from 'common/js/lib/city';
+import CInput from 'component/cInput/cInput';
+import CNormalTextArea from 'component/cNormalTextArea/cNormalTextArea';
+import CTextArea from 'component/cTextArea/cTextArea';
+import CSelect from 'component/cSelect/cSelect';
+import CSearchSelect from 'component/cSearchSelect/cSearchSelect';
+import CUpload from 'component/cUpload/cUpload';
+import CDate from 'component/cDate/cDate';
+import CRangeDate from 'component/cRangeDate/cRangeDate';
+import CMonth from 'component/cMonth/cMonth';
+import CCitySelect from 'component/cCitySelect/cCitySelect';
+import CCheckbox from 'component/cCheckbox/cCheckbox';
+import CTreeSelect from 'component/cTreeSelect/cTreeSelect';
+// const cityData = asyncComponent(() => import('common/js/lib/city'), true);
+// const CInput = asyncComponent(() => import('component/cInput/cInput'), true);
+// const CNormalTextArea = asyncComponent(() => import('component/cNormalTextArea/cNormalTextArea'), true);
+// const CTextArea = asyncComponent(() => import('component/cTextArea/cTextArea'), true);
+// const CSelect = asyncComponent(() => import('component/cSelect/cSelect'), true);
+// const CSearchSelect = asyncComponent(() => import('component/cSearchSelect/cSearchSelect'), true);
+// const CUpload = asyncComponent(() => import('component/cUpload/cUpload'), true);
+// const CDate = asyncComponent(() => import('component/cDate/cDate'), true);
+// const CRangeDate = asyncComponent(() => import('component/cRangeDate/cRangeDate'), true);
+// const CMonth = asyncComponent(() => import('component/cMonth/cMonth'), true);
+// const CCitySelect = asyncComponent(() => import('component/cCitySelect/cCitySelect'), true);
+// const CCheckbox = asyncComponent(() => import('component/cCheckbox/cCheckbox'), true);
+// const CTreeSelect = asyncComponent(() => import('component/cTreeSelect/cTreeSelect'), true);
 
 const { Item: FormItem } = Form;
 const { Panel } = Collapse;
@@ -180,7 +180,7 @@ export default class DetailComp extends React.Component {
       });
     }).catch(() => {});
   }
-  buildDetail(options) {
+  buildDetail = (options) => {
     this.options = { ...this.options, ...options };
     if (!this.first && this.options.useData !== undefined) {
       if (!this.state.pageData) {

@@ -1,15 +1,18 @@
 import React from 'react';
-import { Form, Card } from 'antd';
+import { Form, Card, Button, Tooltip, Icon } from 'antd';
 import { getQiniuToken } from 'api/general';
+import { getDictList } from 'api/dict';
 import CInput from 'component/cInput/cInput';
 import CNormalTextArea from 'component/cNormalTextArea/cNormalTextArea';
-import CTextArea from 'component/cTextArea/cTextArea';
 import CSelect from 'component/cSelect/cSelect';
 import CSearchSelect from 'component/cSearchSelect/cSearchSelect';
 import CUpload from 'component/cUpload/cUpload';
-import { getQueryString, showSucMsg, getUserId, getRules, getRealValue } from 'common/js/util';
-import { validateFieldsAndScrollOption } from 'common/js/config';
+import { isUndefined, getQueryString, showSucMsg, getUserId, getRules,
+  getRealValue } from 'common/js/util';
+import { validateFieldsAndScrollOption, formItemLayout } from 'common/js/config';
 import fetch from 'common/js/fetch';
+
+const FormItem = Form.Item;
 
 @Form.create()
 class RankingAddEdit extends React.Component {
@@ -18,21 +21,24 @@ class RankingAddEdit extends React.Component {
     this.code = getQueryString('code', this.props.location.search);
     this.view = !!getQueryString('v', this.props.location.search);
     this.adjust = !!getQueryString('adjust', this.props.location.search);
+    this.playerCode = getQueryString('pCode', this.props.location.search);
+    this.soaring = !!getQueryString('soaring', this.props.location.search);
     this.options = {
       code: this.code,
       view: this.view
     };
+    // 选手字段
     this.playerFields = [{
       title: '选手编号',
       field: 'matchPlayCode',
       required: true
     }, {
       title: '中文名',
-      field: 'match',
+      field: 'cname',
       required: true
     }, {
       title: '英文名',
-      field: 'matchPlayCode',
+      field: 'ename',
       required: true
     }, {
       title: '赛区',
@@ -91,6 +97,52 @@ class RankingAddEdit extends React.Component {
       title: '备注',
       field: 'remark'
     }];
+    // 排序字段
+    this.rankFields = [{
+      title: '排名',
+      field: 'rank'
+    }, {
+      title: '选手编号',
+      field: 'playerCode'
+    }, {
+      title: '姓名',
+      field: 'playerCname',
+      formatter: (v, d) => `${d.playerCname}-${d.playerEname}`
+    }, {
+      title: '加油数',
+      field: 'ticket_sum',
+      formatter: (v) => v || 0
+    }, {
+      title: '虚拟加油数',
+      field: 'fake_ticket_sum',
+      formatter: (v) => v || 0
+    }, {
+      title: '关注数',
+      field: 'attention_sum',
+      formatter: (v) => v || 0
+    }, {
+      title: '分享数',
+      field: 'share_sum',
+      formatter: (v) => v || 0
+    }, {
+      title: '足迹查看次数',
+      field: 'scan_sum',
+      formatter: (v) => v || 0
+    }];
+    this.soaring && this.rankFields.unshift({
+      title: '批次',
+      field: 'batch'
+    });
+    this.adjustFields = [{
+      title: '虚拟票数',
+      field: 'fakeTicket',
+      help: '正数表示新增票数，负数表示扣减票数',
+      readonly: false
+    }, {
+      title: '备注',
+      field: 'remark',
+      readonly: false
+    }];
     this.state = {
       token: '',
       player: {},
@@ -102,12 +154,14 @@ class RankingAddEdit extends React.Component {
   componentDidMount() {
     Promise.all([
       getQiniuToken(),
-      fetch(640016, { code: this.pCode }),
+      getDictList({ parentKey: 'player_status' }),
+      fetch(640016, { code: this.playerCode }),
       fetch(640026, { code: this.code })
-    ]).then(([token, player, rank]) => {
+    ]).then(([token, playerStatus, player, rank]) => {
       this.setState({
         player,
         rank,
+        selectData: { status: playerStatus },
         token: token.uploadToken,
         fetching: false
       });
@@ -191,19 +245,20 @@ class RankingAddEdit extends React.Component {
     return <CUpload key={item.field} {...props} />;
   }
   // 人工调节
-  saveInfo() {
+  saveInfo = (e) => {
+    e.preventDefault();
     this.props.form.validateFieldsAndScroll(validateFieldsAndScrollOption, (err, values) => {
       if (!err) {
-        this.doFetching();
+        this.setState({ fetching: true });
         values.code = this.code;
         values.updater = getUserId();
         fetch(640020, values).then(() => {
-          this.cancelFetching();
+          this.setState({ fetching: false });
           showSucMsg('操作成功');
           setTimeout(() => {
             this.props.history.go(-1);
           }, 1000);
-        }).catch(this.cancelFetching);
+        }).catch(() => this.setState({ fetching: false }));
       }
     });
   }
@@ -212,14 +267,28 @@ class RankingAddEdit extends React.Component {
     let children = [];
     this.playerFields.forEach(f => {
       this.judgeFieldType(f);
-      children.push(this.getItemByType(f.type, f));
+      children.push(this.getItemByType(f.type, f, this.state.player));
     });
     return children;
   }
   // 榜单信息
-  buildRankDetail() {}
+  buildRankDetail() {
+    let children = [];
+    this.rankFields.forEach(f => {
+      this.judgeFieldType(f);
+      children.push(this.getItemByType(f.type, f, this.state.rank));
+    });
+    return children;
+  }
   // 人工调节
-  buildAdjustDetail() {}
+  buildAdjustDetail() {
+    let children = [];
+    this.adjustFields.forEach(f => {
+      this.judgeFieldType(f);
+      children.push(this.getItemByType(f.type, f));
+    });
+    return children;
+  }
   // 根据field的type做预处理
   judgeFieldType(f) {
     f.readonly = isUndefined(f.readonly) ? !!this.view : !!f.readonly;
@@ -267,31 +336,41 @@ class RankingAddEdit extends React.Component {
         return this.getInputComp(item, initVal, rules, getFieldDecorator);
     }
   }
+  onCancel = () => this.props.history.go(-1)
   render() {
-    /*buttons: this.adjust ? [{
-      title: '保存',
-      type: 'primary',
-      check: true,
-      handler: (params) => this.saveInfo()
-    }, {
-      title: '返回',
-      handler: () => this.props.history.go(-1)
-    }] : [{
-      title: '返回',
-      handler: () => this.props.history.go(-1)
-    }]*/
     return (
       <div>
-        <Form>
-          <Card title="选手信息">
-            {this.buildPlayerDetail()}
+        <Form className="detail-form-wrapper" onSubmit={this.saveInfo}>
+          <Card title="选手信息" style={{marginBottom: 20}}>
+            <div className="detail-form-wrapper">
+              {this.buildPlayerDetail()}
+            </div>
           </Card>
-          <Card title="榜单信息">
-            {this.buildRankDetail()}
+          <Card title="榜单信息" style={{marginBottom: 20}}>
+            <div className="detail-form-wrapper">
+              {this.buildRankDetail()}
+            </div>
           </Card>
-          <Card title="人工调节">
-            {this.buildAdjustDetail()}
-          </Card>
+          {
+            this.adjust ? (
+              <Card title="人工调节" style={{marginBottom: 20}}>
+                <div className="detail-form-wrapper">
+                  {this.buildAdjustDetail()}
+                </div>
+              </Card>
+            ) : null
+          }
+          <FormItem className="cform-item-btn" key='btns' {...formItemLayout} label="&nbsp;">
+            {!this.adjust
+              ? <Button onClick={this.onCancel}>返回</Button>
+              : (
+                <div>
+                  <Button type="primary" htmlType="submit">保存</Button>
+                  <Button style={{marginLeft: 20}} onClick={this.onCancel}>返回</Button>
+                </div>
+              )
+            }
+          </FormItem>
         </Form>
       </div>
     );

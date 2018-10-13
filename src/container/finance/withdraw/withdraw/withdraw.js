@@ -110,7 +110,7 @@ class Withdraw extends React.Component {
     return this.props.buildList({
       fields,
       btnEvent,
-      pageCode: 802355,
+      pageCode: 803355,
       searchParams: {
         channelType: 90
       }

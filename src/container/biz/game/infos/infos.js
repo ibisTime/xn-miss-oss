@@ -36,7 +36,7 @@ class Infos extends React.Component {
   setModalVisible = (updownVisible) => {
     this.setState({ updownVisible });
   }
-  downGame(status, code) {
+  downGame(code) {
     Modal.confirm({
       okText: '确认',
       cancelText: '取消',
@@ -81,14 +81,25 @@ class Infos extends React.Component {
           fields,
           pageCode: 805305,
           btnEvent: {
+            edit: (keys, items) => {
+              if (!keys || !keys.length) {
+                showWarnMsg('请选择记录');
+              } else if (keys.length > 1) {
+                showWarnMsg('请选择一条记录');
+              } else if (items[0].status !== '0' && items[0].status !== '2' && items[0].status !== '5') {
+                showWarnMsg('该记录不是可修改状态');
+              } else {
+                this.props.history.push(`/game/infos/addedit?code=${keys[0]}`);
+              }
+            },
             // 审核
             check: (keys, items) => {
               if (!keys || !keys.length) {
                 showWarnMsg('请选择记录');
               } else if (keys.length > 1) {
                 showWarnMsg('请选择一条记录');
-              // } else if (items[0].status !== '1') {
-              //   showWarnMsg('该记录不是待审核状态');
+              } else if (items[0].status !== '1') {
+                showWarnMsg('该记录不是待审核状态');
               } else {
                 this.props.history.push(`/game/infos/addedit?code=${keys[0]}&v=1&check=1`);
               }
@@ -99,8 +110,8 @@ class Infos extends React.Component {
                 showWarnMsg('请选择记录');
               } else if (keys.length > 1) {
                 showWarnMsg('请选择一条记录');
-              // } else if (items[0].status !== '3') {
-              //   showWarnMsg('该记录不是待上架状态');
+              } else if (items[0].status !== '3') {
+                showWarnMsg('该记录不是待上架状态');
               } else {
                 this.setState({
                   updownVisible: true,
@@ -114,8 +125,8 @@ class Infos extends React.Component {
                 showWarnMsg('请选择记录');
               } else if (keys.length > 1) {
                 showWarnMsg('请选择一条记录');
-              // } else if (items[0].status !== '4') {
-              //   showWarnMsg('该记录不是待审核状态');
+              } else if (items[0].status !== '4') {
+                showWarnMsg('该记录不是可下架状态');
               } else {
                 this.downGame(keys[0]);
               }

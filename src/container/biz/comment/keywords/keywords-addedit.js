@@ -4,39 +4,40 @@ import { getQueryString } from 'common/js/util';
 import DetailUtil from 'common/js/build-detail';
 
 @Form.create()
-class WeightAddEdit extends DetailUtil {
+class KeywordsAddEdit extends DetailUtil {
   constructor(props) {
     super(props);
     this.code = getQueryString('code', this.props.location.search);
     this.view = !!getQueryString('v', this.props.location.search);
   }
   render() {
-    const fields = [{
-      field: 'remark',
+    let fields = [{
+      field: 'level',
+      value: '0',
       hidden: true
     }, {
-      field: 'remark1',
+      field: 'reaction',
+      value: '3',
+      hidden: true
+    }, {
+      title: '关键字',
+      field: 'word',
+      maxlength: 50,
+      required: true
+    }, {
       title: '备注',
-      _keys: ['remark'],
-      readonly: true
-    }, {
-      title: '权重',
-      field: 'cvalue'
-    }, {
-      title: '最近修改时间',
-      field: 'updateDatetime',
-      type: 'datetime',
-      readonly: true
+      field: 'remark'
     }];
     return this.buildDetail({
       fields,
       key: 'id',
       code: this.code,
       view: this.view,
-      detailCode: '630046',
-      editCode: '630042'
+      detailCode: 628006,
+      addCode: 628000,
+      editCode: 628002
     });
   }
 }
 
-export default WeightAddEdit;
+export default KeywordsAddEdit;

@@ -45,15 +45,16 @@ class InfosAddEdit extends DetailUtil {
       required: true
     }, {
       title: '中文名',
-      field: 'match',
+      field: 'cname',
       required: true
     }, {
       title: '英文名',
-      field: 'matchPlayCode',
+      field: 'ename',
       required: true
     }, {
       title: '赛区',
       field: 'match',
+      type: 'select',
       key: 'match',
       required: true
     }, {
@@ -61,24 +62,30 @@ class InfosAddEdit extends DetailUtil {
       field: 'nativePlace',
       required: true
     }, {
-      title: '身高',
+      title: '身高(cm)',
       field: 'height',
       required: true
     }, {
-      title: '体重',
+      title: '体重(kg)',
       field: 'weight',
       required: true
     }, {
-      title: '胸围',
+      title: '胸围(cm)',
       field: 'xwei',
       required: true
     }, {
-      title: '腰围',
+      title: '腰围(cm)',
       field: 'ywei',
+      required: true
+    }, {
+      title: '臀围(cm)',
+      field: 'twei',
       required: true
     }, {
       title: '文字简介',
       field: 'description',
+      type: 'textarea',
+      normalArea: true,
       required: true
     }, {
       title: '列表图',
@@ -103,10 +110,10 @@ class InfosAddEdit extends DetailUtil {
     let config = {
       code: this.code,
       view: this.view,
-      detailCode: 805307
+      detailCode: 640016
     };
     if (this.code && this.view) {
-      fields = fields.push([{
+      fields = fields.concat([{
         title: '状态',
         field: 'status',
         type: 'select',
@@ -126,7 +133,7 @@ class InfosAddEdit extends DetailUtil {
     }
     config.fields = fields;
     // 新增、修改
-    if (!this.code || (this.view && !this.check)) {
+    if (!this.code || (!this.check && !this.view)) {
       config.buttons = [{
         title: '保存',
         type: 'primary',

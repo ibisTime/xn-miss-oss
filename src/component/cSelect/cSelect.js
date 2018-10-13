@@ -137,6 +137,7 @@ CSelect.defaultProps = {
   hidden: false,
   inline: false,
   list: [],
+  rules: [],
   keyName: 'dkey',
   valueName: 'dvalue'
 };

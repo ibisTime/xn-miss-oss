@@ -7,7 +7,7 @@ import { getUserId } from 'common/js/util';
  * @param currency 币种
  */
 export function getAccountsByUserId(userId, currency) {
-  return fetch(802503, { userId, currency });
+  return fetch(803503, { userId, currency });
 }
 /**
  * 根据当前登录用户编号查询账户列表
@@ -20,5 +20,5 @@ export function getAccountsByCurUserId(currency) {
  * 列表查询各端账户总余额
  */
 export function getClientAccounts() {
-  return fetch(802302);
+  return fetch(803302);
 }

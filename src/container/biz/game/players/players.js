@@ -36,11 +36,11 @@ class Players extends React.Component {
   setModalVisible = (updownVisible) => {
     this.setState({ updownVisible });
   }
-  downPlayers(status, code) {
+  downPlayers(code) {
     Modal.confirm({
       okText: '确认',
       cancelText: '取消',
-      content: `确认下架该赛事吗？`,
+      content: `确认下架该选手吗？`,
       onOk: () => {
         this.props.doFetching();
         return fetch(640004, { code, updater: getUserId() }).then(() => {
@@ -77,16 +77,20 @@ class Players extends React.Component {
       search: true
     }, {
       title: '加油数',
-      field: 'none'
+      field: 'ticket_sum',
+      render: (v) => v || 0
     }, {
       title: '关注数',
-      field: 'none1'
+      field: 'attention_sum',
+      render: (v) => v || 0
     }, {
       title: '分享数',
-      field: 'none2'
+      field: 'share_sum',
+      render: (v) => v || 0
     }, {
-      title: '足迹查',
-      field: 'none3'
+      title: '足迹查看次数',
+      field: 'scan_sum',
+      render: (v) => v || 0
     }];
     let that = this;
     return (
@@ -95,14 +99,25 @@ class Players extends React.Component {
           fields,
           pageCode: 640015,
           btnEvent: {
+            edit: (keys, items) => {
+              if (!keys || !keys.length) {
+                showWarnMsg('请选择记录');
+              } else if (keys.length > 1) {
+                showWarnMsg('请选择一条记录');
+              } else if (items[0].status !== '0' && items[0].status !== '2' && items[0].status !== '5') {
+                showWarnMsg('该记录不是可修改状态');
+              } else {
+                this.props.history.push(`/game/players/addedit?code=${keys[0]}`);
+              }
+            },
             // 审核
             check: (keys, items) => {
               if (!keys || !keys.length) {
                 showWarnMsg('请选择记录');
               } else if (keys.length > 1) {
                 showWarnMsg('请选择一条记录');
-              // } else if (items[0].status !== '1') {
-              //   showWarnMsg('该记录不是待审核状态');
+              } else if (items[0].status !== '1') {
+                showWarnMsg('该记录不是待审核状态');
               } else {
                 this.props.history.push(`/game/players/addedit?code=${keys[0]}&v=1&check=1`);
               }
@@ -113,8 +128,8 @@ class Players extends React.Component {
                 showWarnMsg('请选择记录');
               } else if (keys.length > 1) {
                 showWarnMsg('请选择一条记录');
-              // } else if (items[0].status !== '3') {
-              //   showWarnMsg('该记录不是待上架状态');
+              } else if (items[0].status !== '3') {
+                showWarnMsg('该记录不是待上架状态');
               } else {
                 this.setState({
                   updownVisible: true,
@@ -128,8 +143,8 @@ class Players extends React.Component {
                 showWarnMsg('请选择记录');
               } else if (keys.length > 1) {
                 showWarnMsg('请选择一条记录');
-              // } else if (items[0].status !== '4') {
-              //   showWarnMsg('该记录不是待审核状态');
+              } else if (items[0].status !== '4') {
+                showWarnMsg('该记录不是可下架状态');
               } else {
                 this.downPlayers(keys[0]);
               }

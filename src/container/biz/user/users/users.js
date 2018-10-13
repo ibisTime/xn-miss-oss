@@ -14,14 +14,6 @@ import { listWrapper } from 'common/js/build-list';
 import { showWarnMsg } from 'common/js/util';
 import { activateUser } from 'api/user';
 
-const typeDict = {
-  'P': '平台',
-  'O': '产权',
-  'M': '养护',
-  'A': '代理商',
-  'S': '业务员'
-};
-
 @listWrapper(
   state => ({
     ...state.userUsers,
@@ -51,15 +43,6 @@ class Users extends React.Component {
     const fields = [{
       title: '手机号',
       field: 'mobile'
-    }, {
-      title: '推荐人',
-      field: 'userReferee',
-      render: (v, d) => {
-        if (d.refereeUser) {
-          return `${d.refereeUser.mobile}(${typeDict[d.userRefereeType]})`;
-        }
-        return '';
-      }
     }, {
       title: '昵称',
       field: 'nickname'

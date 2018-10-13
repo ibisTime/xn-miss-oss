@@ -1,0 +1,39 @@
+.message-list-wrapper .inner-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.message-list-wrapper .inner-wrapper.right-inner {
+  display: flex;
+  justify-content: flex-end;
+}
+.message-list-wrapper .inner-wrapper .inner-content {
+  flex: 1;
+}
+.message-list-wrapper .inner-wrapper.right-inner .inner-content {
+  text-align: right;
+}
+.message-list-wrapper .inner-wrapper .user-avatar {
+  line-height: 1;
+  text-align: center;
+}
+.message-list-wrapper .inner-wrapper .msg-date,
+.message-list-wrapper .inner-wrapper .msg-time {
+  font-size: 12px;
+  color: #999;
+}
+.message-list-wrapper .inner-wrapper .msg-date {
+  padding-top: 4px;
+}
+.message-list-wrapper .inner-wrapper.right-inner .inner-content {
+  padding-left: 0;
+  padding-right: 10px;
+}
+.message-list-wrapper .inner-wrapper .inner-content {
+  padding-left: 10px;
+  padding-right: 0;
+}
+.message-detail-wrapper .ant-card-body {
+  max-height: 500px;
+  overflow: auto;
+}

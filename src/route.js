@@ -160,6 +160,31 @@ const ROUTES = [
     path: '/user/users/accounts',
     component: asyncComponent(() => import('container/biz/user/users/user-accounts'))
   },
+  // 业务管理 -- 用户管理 -- 分享记录
+  {
+    path: '/user/shares',
+    component: asyncComponent(() => import('container/biz/user/shares/shares'))
+  },
+  // 业务管理 -- 用户管理 -- 足迹记录
+  {
+    path: '/user/footmark',
+    component: asyncComponent(() => import('container/biz/user/footmark/footmark'))
+  },
+  // 业务管理 -- 用户管理 -- 关注记录
+  {
+    path: '/user/follow',
+    component: asyncComponent(() => import('container/biz/user/follow/follow'))
+  },
+  // 业务管理 -- 用户管理 -- 加油订单查询
+  {
+    path: '/user/orders',
+    component: asyncComponent(() => import('container/biz/user/orders/orders'))
+  },
+  // 业务管理 -- 用户管理 -- 加油订单查询 -- 详情
+  {
+    path: '/user/orders/addedit',
+    component: asyncComponent(() => import('container/biz/user/orders/orders-addedit'))
+  },
   // 业务管理 -- 用户管理 -- 账户查询
   {
     path: '/user/accounts',
@@ -205,15 +230,85 @@ const ROUTES = [
     path: '/game/players/addedit',
     component: asyncComponent(() => import('container/biz/game/players/players-addedit'))
   },
-  // 业务管理 -- 业务规则 -- 好友排行权重设置
+  // 业务管理 -- 赛事管理 -- 总榜管理
   {
-    path: '/rules/weight',
-    component: asyncComponent(() => import('container/biz/rules/weight/weight'))
+    path: '/game/ranking',
+    component: asyncComponent(() => import('container/biz/game/ranking/ranking'))
   },
-  // 业务管理 -- 业务规则 -- 好友排行权重设置 -- 详情
+  // 业务管理 -- 赛事管理 -- 总榜管理 -- 详情
   {
-    path: '/rules/weight/addedit',
-    component: asyncComponent(() => import('container/biz/rules/weight/weight-addedit'))
+    path: '/game/ranking/addedit',
+    component: asyncComponent(() => import('container/biz/game/ranking/ranking-addedit'))
+  },
+  // 业务管理 -- 赛事管理 -- 飙升榜管理
+  {
+    path: '/game/soaring',
+    component: asyncComponent(() => import('container/biz/game/soaring/soaring'))
+  },
+  // 业务管理 -- 赛事管理 -- 飙升榜管理 -- 详情
+  {
+    path: '/game/soaring/addedit',
+    component: asyncComponent(() => import('container/biz/game/ranking/ranking-addedit'))
+  },
+  // 业务管理 -- 客服管理 -- 待回复消息
+  {
+    path: '/service/unread',
+    component: asyncComponent(() => import('container/biz/service/unread/unread'))
+  },
+  // 业务管理 -- 客服管理 -- 待回复消息 -- 详情
+  {
+    path: '/service/unread/addedit',
+    component: asyncComponent(() => import('container/biz/service/unread/unread-addedit'))
+  },
+  // 业务管理 -- 客服管理 -- 消息查询
+  {
+    path: '/service/messages',
+    component: asyncComponent(() => import('container/biz/service/messages/messages'))
+  },
+  // 业务管理 -- 客服管理 -- 消息查询 -- 详情
+  {
+    path: '/service/messages/addedit',
+    component: asyncComponent(() => import('container/biz/service/unread/unread-addedit'))
+  },
+  // 业务管理 -- 客服管理 -- 回复模版
+  {
+    path: '/service/template',
+    component: asyncComponent(() => import('container/biz/service/template/template'))
+  },
+  // 业务管理 -- 客服管理 -- 回复模版 -- 详情
+  {
+    path: '/service/template/addedit',
+    component: asyncComponent(() => import('container/biz/service/template/template-addedit'))
+  },
+  // 业务管理 -- 评论管理 -- 关键字管理
+  {
+    path: '/comment/keywords',
+    component: asyncComponent(() => import('container/biz/comment/keywords/keywords'))
+  },
+  // 业务管理 -- 评论管理 -- 关键字管理 -- 详情
+  {
+    path: '/comment/keywords/addedit',
+    component: asyncComponent(() => import('container/biz/comment/keywords/keywords-addedit'))
+  },
+  // 业务管理 -- 评论管理 -- 评论审核
+  {
+    path: '/comment/check',
+    component: asyncComponent(() => import('container/biz/comment/check/check'))
+  },
+  // 业务管理 -- 评论管理 -- 评论审核 -- 详情
+  {
+    path: '/comment/check/addedit',
+    component: asyncComponent(() => import('container/biz/comment/check/check-addedit'))
+  },
+  // 业务管理 -- 评论管理 -- 评论查询
+  {
+    path: '/comment/list',
+    component: asyncComponent(() => import('container/biz/comment/list/list'))
+  },
+  // 业务管理 -- 评论管理 -- 评论查询 -- 详情
+  {
+    path: '/comment/list/addedit',
+    component: asyncComponent(() => import('container/biz/comment/check/check-addedit'))
   }
 ];
 

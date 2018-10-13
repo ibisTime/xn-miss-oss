@@ -10,7 +10,7 @@ import {
   setSearchData
 } from '@redux/finance/platform/accountList';
 import { listWrapper } from 'common/js/build-list';
-import { dateTimeFormat, showWarnMsg, getQueryString } from 'common/js/util';
+import { dateTimeFormat, showWarnMsg } from 'common/js/util';
 
 @listWrapper(
   state => ({
@@ -20,10 +20,6 @@ import { dateTimeFormat, showWarnMsg, getQueryString } from 'common/js/util';
     cancelFetching, setPagination, setSearchParam, setSearchData }
 )
 class Accounts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.type = getQueryString('type', this.props.location.search);
-  }
   render() {
     const fields = [{
       field: 'realName',
@@ -63,9 +59,9 @@ class Accounts extends React.Component {
     return this.props.buildList({
       fields,
       rowKey: 'accountNumber',
-      pageCode: 802300,
+      pageCode: 803300,
       searchParams: {
-        type: this.type,
+        type: 'C',
         currency: 'CNY'
       },
       buttons: [{

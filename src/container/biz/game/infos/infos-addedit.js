@@ -56,7 +56,7 @@ class InfosAddEdit extends DetailUtil {
       detailCode: 805307
     };
     if (this.code && this.view) {
-      fields = fields.push([{
+      fields = fields.concat([{
         title: '状态',
         field: 'status',
         type: 'select',
@@ -76,7 +76,7 @@ class InfosAddEdit extends DetailUtil {
     }
     config.fields = fields;
     // 新增、修改
-    if (!this.code || (this.view && !this.check)) {
+    if (!this.code || (!this.check && !this.view)) {
       config.buttons = [{
         title: '保存',
         type: 'primary',

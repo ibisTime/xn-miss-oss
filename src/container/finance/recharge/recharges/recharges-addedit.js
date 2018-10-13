@@ -17,7 +17,7 @@ class RechargesAddEdit extends DetailUtil {
     params.payResult = payResult;
     params.codeList = [this.code];
     params.payUser = getUserId();
-    fetch(802341, params).then(data => {
+    fetch(803341, params).then(data => {
       this.cancelFetching();
       showSucMsg('操作成功');
       setTimeout(() => {
@@ -61,8 +61,8 @@ class RechargesAddEdit extends DetailUtil {
       fields,
       code: this.code,
       view: this.view,
-      detailCode: 802346,
-      addCode: 802340,
+      detailCode: 803346,
+      addCode: 803340,
       beforeSubmit: (params) => {
         if (!this.code) {
           params.applyUserType = 'P';

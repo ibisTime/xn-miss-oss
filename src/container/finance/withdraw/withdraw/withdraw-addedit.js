@@ -74,8 +74,8 @@ class WithdrawAddedit extends DetailUtil {
     let config = {
       code: this.code,
       view: this.view,
-      detailCode: 802356,
-      editCode: 802354
+      detailCode: 803356,
+      editCode: 803354
     };
     if (this.check) {
       fields.push({
@@ -92,7 +92,7 @@ class WithdrawAddedit extends DetailUtil {
           param.approveUser = getUserId();
           param.codeList = [param.code];
           this.doFetching();
-          fetch(802352, param).then(() => {
+          fetch(803352, param).then(() => {
             showSucMsg('操作成功');
             this.cancelFetching();
             setTimeout(() => {
@@ -109,7 +109,7 @@ class WithdrawAddedit extends DetailUtil {
           param.approveUser = getUserId();
           param.codeList = [param.code];
           this.doFetching();
-          fetch(802352, param).then(() => {
+          fetch(803352, param).then(() => {
             showSucMsg('操作成功');
             this.cancelFetching();
             setTimeout(() => {
@@ -183,7 +183,7 @@ class WithdrawAddedit extends DetailUtil {
         handler: (param) => {
           this.doFetching();
           param.codeList = [param.code];
-          fetch(802353, param).then(() => {
+          fetch(803353, param).then(() => {
             showSucMsg('操作成功');
             this.cancelFetching();
             setTimeout(() => {

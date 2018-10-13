@@ -1,0 +1,90 @@
+import React from 'react';
+import {
+  setTableData,
+  setPagination,
+  setBtnList,
+  setSearchParam,
+  clearSearchParam,
+  doFetching,
+  cancelFetching,
+  setSearchData
+} from '@redux/biz/game/soaring';
+import { listWrapper } from 'common/js/build-list';
+import { showWarnMsg } from 'common/js/util';
+
+@listWrapper(
+  state => ({
+    ...state.gameSoaring,
+    parentCode: state.menu.subMenuCode
+  }),
+  { setTableData, clearSearchParam, doFetching, setBtnList,
+    cancelFetching, setPagination, setSearchParam, setSearchData }
+)
+class Soaring extends React.Component {
+  render() {
+    const fields = [{
+      title: '批次',
+      field: 'batch'
+    }, {
+      title: '排名',
+      field: 'rank'
+    }, {
+      title: '选手编号',
+      field: 'playerCode',
+      search: true
+    }, {
+      title: '姓名',
+      field: 'playerCname',
+      render: (v, d) => `${d.playerCname}-${d.playerEname}`
+    }, {
+      title: '加油数',
+      field: 'ticketSum',
+      render: (v) => v || 0
+    }, {
+      title: '虚拟加油数',
+      field: 'fakeTicketSum',
+      render: (v) => v || 0
+    }, {
+      title: '关注数',
+      field: 'attentionSum',
+      render: (v) => v || 0
+    }, {
+      title: '分享数',
+      field: 'shareSum',
+      render: (v) => v || 0
+    }, {
+      title: '足迹查看次数',
+      field: 'scanSum',
+      render: (v) => v || 0
+    }];
+    return this.props.buildList({
+      fields,
+      pageCode: 640025,
+      searchParams: { type: 2 },
+      btnEvent: {
+        // 调节
+        adjust: (keys, items) => {
+          if (!keys || !keys.length) {
+            showWarnMsg('请选择记录');
+          } else if (keys.length > 1) {
+            showWarnMsg('请选择一条记录');
+          } else {
+            this.props.history.push(`/game/soaring/addedit?code=${keys[0]}&v=1&adjust=1&pCode=${items[0].playerCode}&soaring=1`);
+          }
+        },
+        // 详情
+        detail: (keys, items) => {
+          if (!keys || !keys.length) {
+            showWarnMsg('请选择记录');
+          } else if (keys.length > 1) {
+            showWarnMsg('请选择一条记录');
+          } else {
+            this.props.history.push(`/game/soaring/addedit?code=${keys[0]}&v=1&pCode=${items[0].playerCode}&soaring=1`);
+          }
+        }
+      }
+    });
+  }
+}
+
+export default Soaring;

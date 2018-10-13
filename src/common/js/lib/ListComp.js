@@ -226,8 +226,7 @@ export default class ListComponent extends React.Component {
                 let list = this.props.searchData[item.field] || [];
                 list = start === 1 ? [] : list;
                 this.props.setSearchData({data: list.concat(data.list), key: item.field});
-            }).catch(() => {
-            });
+            }).catch(() => {});
         }, 300);
     }
 
@@ -368,8 +367,7 @@ export default class ListComponent extends React.Component {
             let param = item.params || {};
             fetch(item.listCode, param).then(data => {
                 this.props.setSearchData({data, key: item.field});
-            }).catch(() => {
-            });
+            }).catch(() => {});
         }
     }
 
@@ -565,7 +563,7 @@ export default class ListComponent extends React.Component {
         getFieldDecorator: this.props.form.getFieldDecorator,
         getFieldValue: this.props.form.getFieldValue,
         getFieldError: this.props.form.getFieldError,
-        isLoaded: this.props.isLoaded
+        isLoaded: this.props.fetching
       };
       return <CSearchSelect key={item.field} {...props} />;
     }

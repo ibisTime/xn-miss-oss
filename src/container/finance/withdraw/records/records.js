@@ -88,7 +88,7 @@ class Records extends React.Component {
     }];
     return this.props.buildList({
       fields,
-      pageCode: 802355,
+      pageCode: 803355,
       searchParams: {
         channelType: 90
       }

@@ -32,7 +32,7 @@ export default (loadComponent, placeholder = null) => {
     render() {
       const C = this.state.component;
       return (
-        C ? <C {...this.props}></C> : <Spin></Spin>
+        C ? <C {...this.props}></C> : !placeholder ? <Spin></Spin> : ''
       );
     }
   }
