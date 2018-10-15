@@ -367,10 +367,6 @@ export default class CO2M extends React.Component {
       if (f.render) {
         obj.render = f.render;
       } else {
-        // obj.render = (v, d) => {
-        //   let val = f.rangedate ? `${dateFormat(d[f.rangedate[0]])} ~ ${dateFormat(d[f.rangedate[1]])}` : v;
-        //   return f.nowrap ? <span style={{whiteSpace: 'nowrap'}}>{val}</span> : val;
-        // };
         obj.render = (v, d) => this.renderDate(v, d, f, dateFormat);
         this.addRender(f, (v, d) => this.renderDate(v, d, f, dateFormat));
       }
@@ -430,7 +426,7 @@ export default class CO2M extends React.Component {
   }
   // 生成日期的render
   renderDate(v, d, f, format) {
-    let val = f.rangedate ? `${format(d[f.rangedate[0]])} ~ ${format(d[f.rangedate[1]])}` : v;
+    let val = f.rangedate ? `${format(d[f.rangedate[0]])} ~ ${format(d[f.rangedate[1]])}` : format(v);
     return f.nowrap ? <span style={{whiteSpace: 'nowrap'}}>{val}</span> : val;
   }
   // 生成select的render

@@ -3,34 +3,42 @@ import ModalDetail from 'common/js/build-modal-detail';
 
 class UpDown extends React.Component {
   render() {
-    let { code, key = 'code', biz, onOk } = this.props;
+    let { code, key = 'code', biz, onOk, hideLoc, locKey } = this.props;
+    let locationField = {
+      field: 'location',
+      title: 'UI位置',
+      type: 'select',
+      hidden: hideLoc,
+      required: true
+    };
+    if (locKey) {
+      locationField.key = locKey;
+    } else {
+      locationField.data = [{
+        key: '0',
+        value: '普通'
+      }, {
+        key: '1',
+        value: '热门'
+      }];
+      locationField.keyName = 'key';
+      locationField.valueName = 'value';
+    }
+    let fields = [{
+      field: key,
+      value: code,
+      hidden: true
+    }, locationField, {
+      field: 'orderNo',
+      title: 'UI次序',
+      required: true,
+      help: '数字越小，排序越靠前',
+      integer: true,
+      maxlength: 30
+    }];
+
     const options = {
-      fields: [{
-        field: key,
-        value: code,
-        hidden: true
-      }, {
-        field: 'location',
-        title: 'UI位置',
-        type: 'select',
-        data: [{
-          key: '0',
-          value: '普通'
-        }, {
-          key: '1',
-          value: '热门'
-        }],
-        keyName: 'key',
-        valueName: 'value',
-        required: true
-      }, {
-        field: 'orderNo',
-        title: 'UI次序',
-        required: true,
-        help: '数字越小，排序越靠前',
-        integer: true,
-        maxlength: 30
-      }],
+      fields,
       addCode: biz
     };
     if (onOk) {

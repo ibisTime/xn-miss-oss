@@ -18,7 +18,7 @@ const columns = [{
 export default class Notice extends React.Component {
   render() {
     return (
-      <div className="zjyhrw-wrapper">
+      <div className="notice-wrapper">
         <div className="notice-title"><img src={NoticeImg}/>系统公告</div>
         <Table
           className="notice-table-wrapper"

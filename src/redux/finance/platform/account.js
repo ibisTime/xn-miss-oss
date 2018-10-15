@@ -9,11 +9,15 @@ const SET_CCLIENT_ACCOUNT = PREFIX + 'SET_CCLIENT_ACCOUNT';
 const LOADING = PREFIX + 'LOADING';
 const CANCEL_LOADING = PREFIX + 'CANCEL_LOADING';
 
-// ALIPAY、WEIXIN、OFFLINE、CNY、JF、TPP
+// WEIXIN、OFFLINE、CNY、TPP
 const initState = {
+  // 微信账户
   wxAccount: {},
+  // 线下充值额
   offAccount: {},
+  // 平台盈亏
   cnyAccount: {},
+  // 用户总余额
   cClientAccount: {},
   fetching: true
 };
@@ -67,8 +71,8 @@ export function initData() {
   return dispatch => {
     dispatch(doFetching());
     Promise.all([
-      getAccountsByUserId(SYS_USER)
-      // getClientAccounts()
+      getAccountsByUserId(SYS_USER),
+      getClientAccounts()
     ]).then(([accounts, accounts1]) => {
       dispatch(cancelFetching());
       accounts.forEach(account => {
@@ -80,12 +84,12 @@ export function initData() {
           dispatch(setCnyAccount(account));
         }
       });
-      // accounts1.forEach(account => {
-      //   // 用户总余额
-      //   if (account.type === 'C' && account.currency === 'CNY') {
-      //     dispatch(setCClientAccount(account));
-      //   }
-      // });
+      accounts1.forEach(account => {
+        // 用户总余额
+        if (account.type === 'C' && account.currency === 'CNY') {
+          dispatch(setCClientAccount(account));
+        }
+      });
     }).catch(() => dispatch(cancelFetching()));
   };
 }

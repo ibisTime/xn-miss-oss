@@ -5,7 +5,7 @@ import asyncComponent from 'component/async-component/async-component';
 import { getDictList } from 'api/dict';
 import { getQiniuToken } from 'api/general';
 import {
-  isUndefined, showSucMsg, showErrMsg, showWarnMsg, getUserId,
+  isUndefined, showSucMsg, showErrMsg, showWarnMsg, getUserName,
   moneyParse, getRules, getRealValue, dateFormat, dateTimeFormat } from 'common/js/util';
 import fetch from 'common/js/fetch';
 import { UPLOAD_URL, PIC_PREFIX, PIC_BASEURL_L, formItemLayout,
@@ -23,19 +23,6 @@ import CMonth from 'component/cMonth/cMonth';
 import CCitySelect from 'component/cCitySelect/cCitySelect';
 import CCheckbox from 'component/cCheckbox/cCheckbox';
 import CTreeSelect from 'component/cTreeSelect/cTreeSelect';
-// const cityData = asyncComponent(() => import('common/js/lib/city'), true);
-// const CInput = asyncComponent(() => import('component/cInput/cInput'), true);
-// const CNormalTextArea = asyncComponent(() => import('component/cNormalTextArea/cNormalTextArea'), true);
-// const CTextArea = asyncComponent(() => import('component/cTextArea/cTextArea'), true);
-// const CSelect = asyncComponent(() => import('component/cSelect/cSelect'), true);
-// const CSearchSelect = asyncComponent(() => import('component/cSearchSelect/cSearchSelect'), true);
-// const CUpload = asyncComponent(() => import('component/cUpload/cUpload'), true);
-// const CDate = asyncComponent(() => import('component/cDate/cDate'), true);
-// const CRangeDate = asyncComponent(() => import('component/cRangeDate/cRangeDate'), true);
-// const CMonth = asyncComponent(() => import('component/cMonth/cMonth'), true);
-// const CCitySelect = asyncComponent(() => import('component/cCitySelect/cCitySelect'), true);
-// const CCheckbox = asyncComponent(() => import('component/cCheckbox/cCheckbox'), true);
-// const CTreeSelect = asyncComponent(() => import('component/cTreeSelect/cTreeSelect'), true);
 
 const { Item: FormItem } = Form;
 const { Panel } = Collapse;
@@ -710,7 +697,7 @@ export default class DetailComp extends React.Component {
         values[v.field] = values[v.field] ? values[v.field].join(',') : '';
       }
     });
-    values.updater = values.updater || getUserId();
+    values.updater = values.updater || getUserName();
     return values;
   }
   // 保存并校验错误

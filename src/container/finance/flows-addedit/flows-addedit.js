@@ -88,7 +88,7 @@ class FlowsAddedit extends DetailUtil {
       fields,
       code: this.code,
       view: this.view,
-      detailCode: 803321
+      detailCode: 803522
     });
   }
 }

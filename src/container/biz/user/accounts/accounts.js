@@ -60,7 +60,7 @@ class Accounts extends React.Component {
     return this.props.buildList({
       fields,
       rowKey: 'accountNumber',
-      pageCode: 802300,
+      pageCode: 803500,
       searchParams: {
         type: 'C'
       },

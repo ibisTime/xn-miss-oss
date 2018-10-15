@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu, Breadcrumb, Icon, Dropdown, Button } from 'antd';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   getMenuList,
@@ -99,12 +99,7 @@ class Dashboard extends React.Component {
     );
     return (
       <Header className="header">
-          <div className="logo" onClick={() => {
-              this.props.setTopCode('');
-              this.props.history.push('/');
-          }}>
-              <img src={logo}/>
-          </div>
+        <div className="logo"><img src={logo}/></div>
         <Menu
           theme="dark"
           mode="horizontal"
@@ -158,20 +153,21 @@ class Dashboard extends React.Component {
     let props = {
       className: 'right-content'
     };
-    if (this.props.location.pathname === '/') {
-      props.style = {
-        background: '#f0f2f5',
-        padding: 2
-      };
-    }
+    let pathname = this.props.location.pathname;
+    // if (pathname === '/') {
+    //   props.style = {
+    //     background: '#f0f2f5',
+    //     padding: 2
+    //   };
+    // }
     return (
       <Layout className={rightCls}>
         <Breadcrumb className={innerCls} style={{ margin: '16px 0' }}>
           {this.getBreadcrumb()}
         </Breadcrumb>
         <Content {...props}>
+          {this.props.redirectTo && pathname === '/' ? <Redirect to={this.props.redirectTo}/> : null}
           <Switch>
-            <Route path='/' exact component={Home}></Route>
             {this.props.topMenuList.length ? this.getRoutes() : null}
           </Switch>
         </Content>

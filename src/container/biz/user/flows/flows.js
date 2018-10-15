@@ -71,9 +71,9 @@ class UserFlows extends React.Component {
     }];
     return this.props.buildList({
       fields,
-      pageCode: 802320,
+      pageCode: 803520,
       searchParams: {
-        accountType: 'C'
+        type: 'C'
       }
     });
   }

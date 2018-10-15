@@ -12,10 +12,6 @@ class BannerAddEdit extends DetailUtil {
   }
   render() {
     const fields = [{
-      field: 'status',
-      hidden: true,
-      value: 1
-    }, {
       field: 'type',
       value: 2,
       hidden: true
@@ -28,21 +24,17 @@ class BannerAddEdit extends DetailUtil {
       field: 'name',
       required: true
     }, {
-      title: '位置',
+      title: 'UI位置',
       field: 'location',
       type: 'select',
-      data: [{
-        dkey: 'index_banner',
-        dvalue: '首页'
-      }],
-      keyName: 'dkey',
-      valueName: 'dvalue',
-      value: 'index_banner',
+      key: 'banner_location',
+      hidden: !this.view,
       required: true
     }, {
       title: '顺序',
       field: 'orderNo',
       help: '数字越小，排序越靠前',
+      hidden: !this.view,
       required: true
     }, {
       title: 'banner图片',

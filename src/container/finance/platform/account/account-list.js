@@ -59,11 +59,8 @@ class Accounts extends React.Component {
     return this.props.buildList({
       fields,
       rowKey: 'accountNumber',
-      pageCode: 803300,
-      searchParams: {
-        type: 'C',
-        currency: 'CNY'
-      },
+      pageCode: 803500,
+      searchParams: { type: 'C' },
       buttons: [{
         name: '流水查询',
         code: 'flows',

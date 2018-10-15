@@ -68,12 +68,18 @@ class Records extends React.Component {
       render: dateTimeFormat,
       search: true
     }, {
+      field: 'approveUser',
+      title: '审核人'
+    }, {
       field: 'approveDatetime',
       title: '审核时间',
       type: 'date',
       rangedate: ['approveDateStart', 'approveDateEnd'],
       render: dateTimeFormat,
       search: true
+    }, {
+      field: 'payUser',
+      title: '回录人'
     }, {
       field: 'payFee',
       title: '支付手续费',
@@ -88,7 +94,7 @@ class Records extends React.Component {
     }];
     return this.props.buildList({
       fields,
-      pageCode: 803355,
+      pageCode: 803755,
       searchParams: {
         channelType: 90
       }

@@ -20,5 +20,5 @@ export function getAccountsByCurUserId(currency) {
  * 列表查询各端账户总余额
  */
 export function getClientAccounts() {
-  return fetch(803302);
+  return fetch(803504);
 }

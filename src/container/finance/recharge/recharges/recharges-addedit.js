@@ -17,7 +17,7 @@ class RechargesAddEdit extends DetailUtil {
     params.payResult = payResult;
     params.codeList = [this.code];
     params.payUser = getUserId();
-    fetch(803341, params).then(data => {
+    fetch(803701, params).then(data => {
       this.cancelFetching();
       showSucMsg('操作成功');
       setTimeout(() => {
@@ -35,7 +35,7 @@ class RechargesAddEdit extends DetailUtil {
       title: '用户账户',
       required: true,
       type: 'select',
-      pageCode: 802300,
+      pageCode: 803500,
       params: {
         status: '0',
         type: 'NOT_P'
@@ -61,12 +61,9 @@ class RechargesAddEdit extends DetailUtil {
       fields,
       code: this.code,
       view: this.view,
-      detailCode: 803346,
-      addCode: 803340,
+      detailCode: 803706,
+      addCode: 803700,
       beforeSubmit: (params) => {
-        if (!this.code) {
-          params.applyUserType = 'P';
-        }
         return params;
       }
     };

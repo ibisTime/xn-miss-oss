@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form } from 'antd';
-import { getQueryString, getUserId, showSucMsg } from 'common/js/util';
+import { getQueryString, getUserName, showSucMsg } from 'common/js/util';
 import fetch from 'common/js/fetch';
 import DetailUtil from 'common/js/build-detail';
 
@@ -89,7 +89,7 @@ class WithdrawAddedit extends DetailUtil {
         title: '通过',
         handler: (param) => {
           param.approveResult = '1';
-          param.approveUser = getUserId();
+          param.approveUser = getUserName();
           param.codeList = [param.code];
           this.doFetching();
           fetch(803352, param).then(() => {
@@ -106,7 +106,7 @@ class WithdrawAddedit extends DetailUtil {
         title: '不通过',
         handler: (param) => {
           param.approveResult = '0';
-          param.approveUser = getUserId();
+          param.approveUser = getUserName();
           param.codeList = [param.code];
           this.doFetching();
           fetch(803352, param).then(() => {
@@ -155,11 +155,6 @@ class WithdrawAddedit extends DetailUtil {
           this.setState({ paySuc: v === '1' });
         }
       }, {
-        field: 'payUser',
-        title: '打款人',
-        required: true,
-        readonly: false
-      }, {
         field: 'channelOrder',
         title: '打款水单编号',
         hidden: !this.state.paySuc,
@@ -183,7 +178,8 @@ class WithdrawAddedit extends DetailUtil {
         handler: (param) => {
           this.doFetching();
           param.codeList = [param.code];
-          fetch(803353, param).then(() => {
+          param.payUser = getUserName();
+          fetch(803753, param).then(() => {
             showSucMsg('操作成功');
             this.cancelFetching();
             setTimeout(() => {
@@ -212,14 +208,10 @@ class WithdrawAddedit extends DetailUtil {
         title: '审核意见'
       }, {
         field: 'payUser',
-        title: '打款人'
+        title: '回录人'
       }, {
         field: 'channelOrder',
         title: '打款水单编号'
-      }, {
-        field: 'payFee',
-        title: '打款手续费',
-        amount: true
       }, {
         field: 'payNote',
         title: '打款备注'
