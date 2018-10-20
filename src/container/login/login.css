@@ -25,7 +25,7 @@
   height: 100%;
 }
 .login-wrap .login-img {
-  background-image: url('./tree.png');
+  background-image: url('./left.png');
   background-size: 100% 100%;
 }
 .login-wrap .login-form {
@@ -34,9 +34,9 @@
   background: #fff;
 }
 .login-wrap .login-form .login-logo {
-  margin-top: 64.4px;
-  margin-bottom: 48px;
-  height: 65.6px;
+  margin-top: 73px;
+  margin-bottom: 35.7px;
+  height: 112.3px;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('./logo.png');
@@ -56,12 +56,12 @@
   height: 56px;
   width: 100%;
   font-size: 18px;
-  border: 1px solid #23ad8c;
-  background-color: #23ad8c;
+  border: 1px solid #C5B17D;
+  background-color: #C5B17D;
 }
 .login-wrap .login-form-wrapper .ant-btn-primary.login-form-button:hover {
-  border-color: #29be9b;
-  background-color: #29be9b;
+  border-color: #d4bf87;
+  background-color: #d4bf87;
 }
 .login-wrap .login-form .bottom-tip {
   padding: 2px 42px 0;
@@ -83,10 +83,10 @@
   margin: 0 14px;
 }
 .login-wrap .login-form .bottom-tip .tip-text a {
-  color: #23ad8c;
+  color: #C5B17D;
 }
 .login-wrap .login-form .bottom-tip .tip-text a:hover, .login-wrap .login-form .bottom-tip .tip-text a:active {
-  color: #29be9b;
+  color: #d4bf87;
 }
 
 /*注册*/
@@ -102,11 +102,11 @@
 }
 .register-wrap.login-wrap .login-form-wrapper button.ant-btn.smsCapt {
   height: 50px;
-  border: 1px solid #23ad8c;
-  color: #23ad8c;
+  border: 1px solid #C5B17D;
+  color: #C5B17D;
   min-width: 102px;
 }
 .login-wrap .login-form-wrapper button.ant-btn.smsCapt:hover {
-  border-color: #29be9b;
-  color: #29be9b;
+  border-color: #d4bf87;
+  color: #d4bf87;
 }

@@ -15,6 +15,7 @@ import { platformAccountFlows } from './redux/finance/platform/accountFlows';
 import { platformAccountList } from './redux/finance/platform/accountList';
 import { platformFlows } from './redux/finance/platform/flows';
 // 财务管理--充值管理
+import { rechargeAccounts } from './redux/finance/recharge/accounts';
 import { rechargeRecharges } from './redux/finance/recharge/recharges';
 import { rechargeRecords } from './redux/finance/recharge/records';
 // 财务管理--取现管理
@@ -58,6 +59,7 @@ export default combineReducers({
   platformAccountFlows,
   platformAccountList,
   platformFlows,
+  rechargeAccounts,
   rechargeRecharges,
   rechargeRecords,
   withdrawRules,

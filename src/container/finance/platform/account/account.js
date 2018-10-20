@@ -13,8 +13,8 @@ class Account extends React.Component {
     this.props.initData();
   }
   // 资金流水
-  goFlow(accountNumber) {
-    this.props.history.push(`/platform/account/flows?code=${accountNumber}`);
+  goFlow(accountNumber, type) {
+    this.props.history.push(`/platform/account/flows?code=${accountNumber}&type=${type}`);
   }
   // 资金分布
   goAccounts(type) {
@@ -25,7 +25,7 @@ class Account extends React.Component {
     this.props.history.push(`/platform/account/enter?code=${accountNumber}`);
   }
   render() {
-    const { wxAccount, offAccount, cClientAccount, cnyAccount } = this.props;
+    const { wxAccount, offAccount, cClientAccount, cnyAccount, ppAccount } = this.props;
     return (
       <div>
         <Spin spinning={this.props.fetching}>
@@ -59,6 +59,11 @@ class Account extends React.Component {
               <Card title="平台盈亏" extra={
                 <Button onClick={() => this.goFlow(cnyAccount.accountNumber)} type="primary">资金流水</Button>
               }>¥{moneyFormat(cnyAccount.amount || 0)}</Card>
+            </Col>
+            <Col span={8} style={{marginBottom: '20px'}}>
+              <Card title="品牌方" extra={
+                <Button onClick={() => this.goFlow('', 'B')} type="primary">资金流水</Button>
+              }>¥{moneyFormat(ppAccount.amount || 0)}</Card>
             </Col>
           </Row>
         </Spin>

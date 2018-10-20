@@ -95,6 +95,16 @@ const ROUTES = [
     path: '/platform/flows',
     component: asyncComponent(() => import('container/finance/platform/flows/flows'))
   },
+  // 财务管理 -- 充值管理 -- 线下充值帐号
+  {
+    path: '/recharge/accounts',
+    component: asyncComponent(() => import('container/finance/recharge/accounts/accounts'))
+  },
+  // 财务管理 -- 充值管理 -- 线下充值帐号 -- 详情
+  {
+    path: '/recharge/accounts/addedit',
+    component: asyncComponent(() => import('container/finance/recharge/accounts/accounts-addedit'))
+  },
   // 财务管理 -- 充值管理 -- 线下充值
   {
     path: '/recharge/recharges',

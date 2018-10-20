@@ -6,6 +6,7 @@ const SET_WX_ACCOUNT = PREFIX + 'SET_WX_ACCOUNT';
 const SET_OFFLINE_ACCOUNT = PREFIX + 'SET_OFFLINE_ACCOUNT';
 const SET_CNY_ACCOUNT = PREFIX + 'SET_CNY_ACCOUNT';
 const SET_CCLIENT_ACCOUNT = PREFIX + 'SET_CCLIENT_ACCOUNT';
+const SET_PP_ACCOUNT = PREFIX + 'SET_PP_ACCOUNT';
 const LOADING = PREFIX + 'LOADING';
 const CANCEL_LOADING = PREFIX + 'CANCEL_LOADING';
 
@@ -19,6 +20,8 @@ const initState = {
   cnyAccount: {},
   // 用户总余额
   cClientAccount: {},
+  // 品牌方
+  ppAccount: {},
   fetching: true
 };
 
@@ -32,6 +35,8 @@ export function platformAccount(state = initState, action) {
       return {...state, cnyAccount: action.payload};
     case SET_CCLIENT_ACCOUNT:
       return {...state, cClientAccount: action.payload};
+    case SET_PP_ACCOUNT:
+      return {...state, ppAccount: action.payload};
     case LOADING:
       return {...state, fetching: true};
     case CANCEL_LOADING:
@@ -66,6 +71,10 @@ function setCnyAccount(data) {
 function setCClientAccount(data) {
   return { type: SET_CCLIENT_ACCOUNT, payload: data };
 }
+// 设置品牌方
+function setPpAccount(data) {
+  return { type: SET_PP_ACCOUNT, payload: data };
+}
 // 初始化页面数据
 export function initData() {
   return dispatch => {
@@ -88,6 +97,9 @@ export function initData() {
         // 用户总余额
         if (account.type === 'C' && account.currency === 'CNY') {
           dispatch(setCClientAccount(account));
+          // 品牌方
+        } else if (account.type === 'B' && account.currency === 'CNY') {
+          dispatch(setPpAccount(account));
         }
       });
     }).catch(() => dispatch(cancelFetching()));

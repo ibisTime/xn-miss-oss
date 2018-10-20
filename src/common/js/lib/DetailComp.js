@@ -140,7 +140,7 @@ export default class DetailComp extends React.Component {
               dictData[field.field][field.keyName] = data;
             }
           } else {
-            selectData[this.fetchList[i - 2].field] = data;
+            selectData[field.field] = data;
           }
         }
       });

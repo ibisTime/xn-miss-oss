@@ -23,6 +23,7 @@ class PlatformAccountFlows extends React.Component {
   constructor(props) {
     super(props);
     this.accountNumber = getQueryString('code', this.props.location.search);
+    this.accountType = getQueryString('type', this.props.location.search);
   }
   render() {
     const fields = [{
@@ -77,7 +78,8 @@ class PlatformAccountFlows extends React.Component {
       pageCode: 803520,
       searchParams: {
         type: '0',
-        accountNumber: this.accountNumber
+        accountNumber: this.accountNumber,
+        accountType: this.accountType
       }
     });
   }

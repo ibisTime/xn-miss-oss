@@ -53,6 +53,15 @@ class RechargesAddEdit extends DetailUtil {
       required: true,
       amount: true
     }, {
+      title: '收款帐号',
+      field: 'collectionAccountNumber',
+      type: 'select',
+      listCode: 802026,
+      keyName: 'code',
+      valueName: '{{bankName.DATA}}-{{bankcardNumber.DATA}}',
+      hidden: this.code && (!this.state.pageData || !this.state.pageData.collectionAccountNumber),
+      required: true
+    }, {
       field: 'applyNote',
       title: '充值说明',
       maxlength: 255
