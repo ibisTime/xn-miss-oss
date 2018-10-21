@@ -28,7 +28,7 @@ class Withdraw extends React.Component {
       field: 'code',
       title: '编号'
     }, {
-      field: 'accountType',
+      field: 'type',
       title: '角色类型',
       type: 'select',
       key: 'account_type',
@@ -40,7 +40,7 @@ class Withdraw extends React.Component {
       field: 'payCardNo',
       title: '银行卡号'
     }, {
-      field: 'realName',
+      field: 'accountName',
       title: '户名',
       search: true
     }, {
@@ -79,7 +79,7 @@ class Withdraw extends React.Component {
       title: '回录人'
     }, {
       field: 'payFee',
-      title: '支付手续费',
+      title: '打款手续费',
       amount: true
     }, {
       field: 'payDatetime',
@@ -90,6 +90,9 @@ class Withdraw extends React.Component {
       search: true
     }];
     const btnEvent = {
+      apply: (keys, items) => {
+        this.props.history.push('/withdraw/withdraw/apply');
+      },
       check: (keys, items) => {
         if (!keys.length) {
           showWarnMsg('请选择记录');

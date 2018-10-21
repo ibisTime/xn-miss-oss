@@ -26,7 +26,7 @@ class Records extends React.Component {
       field: 'code',
       title: '编号'
     }, {
-      field: 'realName',
+      field: 'accountName',
       title: '户名',
       search: true
     }, {
@@ -50,7 +50,7 @@ class Records extends React.Component {
       rangedate: ['applyDateStart', 'applyDateEnd'],
       search: true
     }, {
-      field: 'payUser',
+      field: 'payUserName',
       title: '审核人'
     }, {
       field: 'payDatetime',

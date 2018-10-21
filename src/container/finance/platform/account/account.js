@@ -63,7 +63,11 @@ class Account extends React.Component {
             <Col span={8} style={{marginBottom: '20px'}}>
               <Card title="品牌方" extra={
                 <Button onClick={() => this.goFlow('', 'B')} type="primary">资金流水</Button>
-              }>¥{moneyFormat(ppAccount.amount || 0)}</Card>
+              }>¥{moneyFormat(ppAccount.amount || 0)}
+                <Button
+                  style={{float: 'right'}}
+                  onClick={() => this.goWithdraw('SYS_ACOUNT_B')} type="primary">提现回录</Button>
+              </Card>
             </Col>
           </Row>
         </Spin>

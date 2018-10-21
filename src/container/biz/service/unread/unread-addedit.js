@@ -31,10 +31,10 @@ export default class UnReadAddEdit extends React.Component {
     Promise.all([
       fetch(640106, { code: this.code }),
       fetch(805121, { userId: this.userId }),
-      fetch(640127, { status: 4 })
+      fetch(640127)
     ]).then(([mes, userInfo, tmplList]) => {
       this.setState({
-        list: mes.dataList || [],
+        list: mes.questionsList || [],
         userInfo,
         tmplList,
         photo: userInfo.photo || '',

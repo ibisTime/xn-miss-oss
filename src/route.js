@@ -140,6 +140,11 @@ const ROUTES = [
     path: '/withdraw/withdraw',
     component: asyncComponent(() => import('container/finance/withdraw/withdraw/withdraw'))
   },
+  // 财务管理 -- 取现管理 -- 待申请
+  {
+    path: '/withdraw/withdraw/apply',
+    component: asyncComponent(() => import('container/finance/withdraw/withdraw/withdraw-apply'))
+  },
   // 财务管理 -- 取现管理 -- 线下取现 -- 详情
   {
     path: '/withdraw/withdraw/addedit',

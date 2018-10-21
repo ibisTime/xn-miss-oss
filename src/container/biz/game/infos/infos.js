@@ -64,6 +64,9 @@ class Infos extends React.Component {
       key: 'event_status',
       search: true
     }, {
+      title: 'UI次序',
+      field: 'orderNo'
+    }, {
       title: '更新人',
       field: 'updater'
     }, {
@@ -138,6 +141,7 @@ class Infos extends React.Component {
           setModalVisible={this.setModalVisible}
           biz='805303'
           code={this.state.code}
+          hideLoc={true}
           onOk={() => {
             that.setModalVisible(false);
             that.props.getPageData();

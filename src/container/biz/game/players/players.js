@@ -64,11 +64,20 @@ class Players extends React.Component {
     }, {
       title: '赛区',
       field: 'match',
+      type: 'select',
       key: 'match',
       search: true
     }, {
       title: '籍贯',
       field: 'nativePlace'
+    }, {
+      title: 'UI位置',
+      field: 'location',
+      type: 'select',
+      key: 'com_location'
+    }, {
+      title: 'UI次序',
+      field: 'orderNo'
     }, {
       title: '状态',
       field: 'status',

@@ -36,7 +36,7 @@ class Messages extends React.Component {
       field: 'user1Nickname',
       title: '昵称'
     }, {
-      field: 'ureadSum',
+      field: 'unreadSum',
       title: '未读消息数量',
       render: v => v || 0
     }];

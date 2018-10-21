@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form } from 'antd';
-import { getQueryString, showSucMsg, getUserId } from 'common/js/util';
+import { getQueryString, showSucMsg, getUserName } from 'common/js/util';
 import DetailUtil from 'common/js/build-detail';
 import fetch from 'common/js/fetch';
 
@@ -29,7 +29,7 @@ class InfosAddEdit extends DetailUtil {
   checkGame(approveResult, params) {
     this.doFetching();
     params.approveResult = approveResult;
-    params.approver = getUserId();
+    params.approver = getUserName();
     fetch(640001, params).then(() => {
       this.cancelFetching();
       showSucMsg('操作成功');
@@ -140,7 +140,7 @@ class InfosAddEdit extends DetailUtil {
         check: true,
         handler: (params) => this.saveOrSend(0, params)
       }, {
-        title: '发送',
+        title: '提交审核',
         type: 'primary',
         check: true,
         handler: (params) => this.saveOrSend(1, params)

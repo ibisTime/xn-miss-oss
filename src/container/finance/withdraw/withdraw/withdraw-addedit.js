@@ -27,10 +27,10 @@ class WithdrawAddedit extends DetailUtil {
       required: true
     }, {
       title: '户名',
-      field: 'realName',
+      field: 'accountName',
       required: true
     }, {
-      field: 'accountType',
+      field: 'type',
       title: '账户类型',
       type: 'select',
       key: 'account_type',
@@ -74,8 +74,7 @@ class WithdrawAddedit extends DetailUtil {
     let config = {
       code: this.code,
       view: this.view,
-      detailCode: 803356,
-      editCode: 803354
+      detailCode: 803756
     };
     if (this.check) {
       fields.push({
@@ -92,7 +91,7 @@ class WithdrawAddedit extends DetailUtil {
           param.approveUser = getUserName();
           param.codeList = [param.code];
           this.doFetching();
-          fetch(803352, param).then(() => {
+          fetch(803752, param).then(() => {
             showSucMsg('操作成功');
             this.cancelFetching();
             setTimeout(() => {
@@ -109,7 +108,7 @@ class WithdrawAddedit extends DetailUtil {
           param.approveUser = getUserName();
           param.codeList = [param.code];
           this.doFetching();
-          fetch(803352, param).then(() => {
+          fetch(803752, param).then(() => {
             showSucMsg('操作成功');
             this.cancelFetching();
             setTimeout(() => {

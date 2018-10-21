@@ -3,7 +3,7 @@ import ModalDetail from 'common/js/build-modal-detail';
 
 class UpDown extends React.Component {
   render() {
-    let { code, key = 'code', biz, onOk, hideLoc, locKey } = this.props;
+    let { code, key = 'code', biz, onOk, hideLoc, locKey, list } = this.props;
     let locationField = {
       field: 'location',
       title: 'UI位置',
@@ -13,16 +13,21 @@ class UpDown extends React.Component {
     };
     if (locKey) {
       locationField.key = locKey;
-    } else {
-      locationField.data = [{
-        key: '0',
-        value: '普通'
-      }, {
-        key: '1',
-        value: '热门'
-      }];
+    } else if (list) {
+      locationField.data = list;
       locationField.keyName = 'key';
       locationField.valueName = 'value';
+    } else {
+      locationField.key = 'com_location';
+      // locationField.data = [{
+      //   key: '0',
+      //   value: '普通'
+      // }, {
+      //   key: '1',
+      //   value: '热门'
+      // }];
+      // locationField.keyName = 'key';
+      // locationField.valueName = 'value';
     }
     let fields = [{
       field: key,

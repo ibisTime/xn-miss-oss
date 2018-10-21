@@ -1,24 +1,6 @@
 import React from 'react';
-import { Form } from 'antd';
-import asyncComponent from 'component/async-component/async-component';
 import DetailComp from 'common/js/lib/DetailComp';
 import CO2M from 'component/cO2M/cO2M';
-
-const { Item: FormItem } = Form;
-export const detailWrapper = (WrapComponent) => {
-  return Form.create()(
-    class DetailComponent extends DetailComp {
-      render() {
-        return <WrapComponent
-          {...this.props}
-          state={{...this.state}}
-          buildDetail={this.buildDetail}
-          doFetching={this.doFetching}
-          cancelFetching={this.cancelFetching}></WrapComponent>;
-      }
-    }
-  );
-};
 
 export default class DetailUtil extends DetailComp {
   // o2m选择一行数据的回调

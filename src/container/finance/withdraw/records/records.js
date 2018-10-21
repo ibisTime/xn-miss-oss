@@ -28,7 +28,7 @@ class Records extends React.Component {
       field: 'code',
       title: '编号'
     }, {
-      field: 'accountType',
+      field: 'type',
       title: '角色类型',
       type: 'select',
       key: 'account_type',
@@ -40,7 +40,7 @@ class Records extends React.Component {
       field: 'payCardNo',
       title: '银行卡号'
     }, {
-      field: 'realName',
+      field: 'accountName',
       title: '户名',
       search: true
     }, {
@@ -82,7 +82,7 @@ class Records extends React.Component {
       title: '回录人'
     }, {
       field: 'payFee',
-      title: '支付手续费',
+      title: '打款手续费',
       amount: true
     }, {
       field: 'payDatetime',

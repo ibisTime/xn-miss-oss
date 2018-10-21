@@ -38,15 +38,15 @@ class RechargesAddEdit extends DetailUtil {
       pageCode: 803500,
       params: {
         status: '0',
-        type: 'NOT_P'
+        type: 'C'
       },
       dict: [
         ['currency', 'currency'],
         ['type', 'account_type']
       ],
       keyName: 'accountNumber',
-      valueName: '{{mobile.DATA}}-{{typeName.DATA}}-{{currencyName.DATA}}',
-      searchName: 'mobileForQuery'
+      valueName: '{{realName.DATA}}-{{typeName.DATA}}-{{currencyName.DATA}}',
+      searchName: 'realName'
     }, {
       title: '充值金额',
       field: 'amount',

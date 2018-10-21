@@ -43,7 +43,7 @@ class Keywords extends React.Component {
       field: 'updater'
     }, {
       title: '更新时间',
-      field: 'createDatetime',
+      field: 'updateDatetime',
       type: 'datetime'
     }, {
       title: '备注',

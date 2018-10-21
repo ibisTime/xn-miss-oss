@@ -23,10 +23,17 @@ class FootMark extends React.Component {
   render() {
     const fields = [{
       title: '足迹人',
-      field: 'creater'
+      field: 'creater',
+      pageCode: 805120,
+      type: 'select',
+      keyName: 'userId',
+      valueName: 'nickname',
+      searchName: 'nickname',
+      search: true,
+      render: (v, d) => d.user ? d.user.nickname : ''
     }, {
       title: '被足迹人',
-      field: 'toCode'
+      field: 'remark'
     }, {
       title: '足迹时间',
       field: 'createDatetime',
