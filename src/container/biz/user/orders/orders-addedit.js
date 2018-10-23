@@ -17,7 +17,8 @@ class OrdersAddEdit extends DetailUtil {
             field: 'code'
         }, {
             title: '选手编号',
-            field: 'playerCode'
+            field: 'matchPlayCode',
+            formatter: (v, d) => `${d.playerInfo.matchPlayCode}`
         }, {
             title: '姓名',
             field: 'playerCname',

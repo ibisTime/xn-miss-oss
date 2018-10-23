@@ -103,7 +103,8 @@ class RankingAddEdit extends React.Component {
       field: 'rank'
     }, {
       title: '选手编号',
-      field: 'playerCode'
+      field: 'matchPlayCode',
+        formatter: (v, d) => `${d.player.matchPlayCode}`
     }, {
       title: '姓名',
       field: 'playerCname',

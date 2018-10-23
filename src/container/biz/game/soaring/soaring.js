@@ -30,7 +30,8 @@ class Soaring extends React.Component {
       field: 'rank'
     }, {
       title: '选手编号',
-      field: 'playerCode',
+      field: 'matchPlayCode',
+      render: (v, d) => `${d.player.matchPlayCode}`,
       search: true
     }, {
       title: '姓名',
