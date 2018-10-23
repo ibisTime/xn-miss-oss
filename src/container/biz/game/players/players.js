@@ -138,7 +138,11 @@ class Players extends React.Component {
               } else if (keys.length > 1) {
                 showWarnMsg('请选择一条记录');
               } else if (items[0].status !== '3') {
-                showWarnMsg('该记录不是待上架状态');
+                let msg = '该记录不是待上架状态';
+                if (items[0].status === '5') {
+                    msg = '该选手已下架请修改后上架';
+                }
+                showWarnMsg(msg);
               } else {
                 this.setState({
                   updownVisible: true,

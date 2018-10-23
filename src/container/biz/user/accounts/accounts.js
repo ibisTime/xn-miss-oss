@@ -23,7 +23,7 @@ import { dateTimeFormat, showWarnMsg } from 'common/js/util';
 class Accounts extends React.Component {
   render() {
     const fields = [{
-      field: 'mobile',
+      field: 'realName',
       title: '户名',
       search: true
     }, {

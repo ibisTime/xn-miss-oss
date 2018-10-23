@@ -107,26 +107,26 @@ class RankingAddEdit extends React.Component {
     }, {
       title: '姓名',
       field: 'playerCname',
-      formatter: (v, d) => `${d.playerCname}-${d.playerEname}`
+      formatter: (v, d) => `${d.player.cname}-${d.player.ename}`
     }, {
       title: '加油数',
-      field: 'ticket_sum',
+      field: 'ticketSum',
       formatter: (v) => v || 0
     }, {
       title: '虚拟加油数',
-      field: 'fake_ticket_sum',
+      field: 'fakeTicketSum',
       formatter: (v) => v || 0
     }, {
       title: '关注数',
-      field: 'attention_sum',
+      field: 'attentionSum',
       formatter: (v) => v || 0
     }, {
       title: '分享数',
-      field: 'share_sum',
+      field: 'shareSum',
       formatter: (v) => v || 0
     }, {
       title: '足迹查看次数',
-      field: 'scan_sum',
+      field: 'scanSum',
       formatter: (v) => v || 0
     }];
     this.soaring && this.rankFields.unshift({

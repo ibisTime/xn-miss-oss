@@ -33,6 +33,6 @@ app.use('/api', function (req, res) {
   console.log(time + ': {' + 'code: ' + _body.code + ', json: ' + _body.json + '}');
 });
 
-app.listen(9092, function(){
-  console.log('Node app start at port 9092')
+app.listen(9094, function(){
+  console.log('Node app start at port 9094')
 });

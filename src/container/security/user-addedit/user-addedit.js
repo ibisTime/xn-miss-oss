@@ -10,20 +10,15 @@ class UserAddEdit extends DetailUtil {
       value: 'P',
       hidden: true
     }, {
-      title: '用户名',
-      field: 'loginName',
+      title: '手机号',
+      field: 'mobile',
       required: true,
-      maxlength: 30
+      mobile: true
     }, {
       title: '真实姓名',
       field: 'realName',
       required: true,
       maxlength: 30
-    }, {
-      title: '手机号',
-      field: 'mobile',
-      required: true,
-      mobile: true
     }, {
       title: '密码',
       field: 'loginPwd',

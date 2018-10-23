@@ -9,6 +9,13 @@ class SysParamAddEdit extends DetailUtil {
     super(props);
     this.code = getQueryString('code', this.props.location.search);
     this.view = !!getQueryString('v', this.props.location.search);
+    this.ckey = getQueryString('ckey', this.props.location.search);
+    this.textareaList = ['REGISTRATION_AGREEMENT'];
+    this.textareaFlag = false;
+    if (this.textareaList.indexOf(this.ckey) >= 0) {
+        this.textareaFlag = true;
+    }
+    console.log(this.textareaFlag);
   }
   render() {
     const fields = [{
@@ -22,12 +29,13 @@ class SysParamAddEdit extends DetailUtil {
       readonly: true
     }, {
       title: '参数值',
-      field: 'cvalue'
+      field: 'cvalue',
+      type: 'textarea'
     }, {
       title: '最近修改时间',
       field: 'updateDatetime',
       type: 'datetime',
-      readonly: true
+      hidden: !this.view
     }];
     return this.buildDetail({
       fields,

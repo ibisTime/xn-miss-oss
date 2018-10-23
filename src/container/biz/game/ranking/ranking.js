@@ -32,7 +32,7 @@ class Ranking extends React.Component {
     }, {
       title: '姓名',
       field: 'playerCname',
-      render: (v, d) => `${d.playerCname}-${d.playerEname}`
+      render: (v, d) => `${d.player.cname}-${d.player.ename}`
     }, {
       title: '加油数',
       field: 'ticketSum',
