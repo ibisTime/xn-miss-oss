@@ -59,7 +59,7 @@ class RechargesAddEdit extends DetailUtil {
       listCode: 802026,
       keyName: 'code',
       valueName: '{{bankName.DATA}}-{{bankcardNumber.DATA}}',
-      hidden: this.code && (!this.state.pageData || !this.state.pageData.collectionAccountNumber),
+      hidden: !!this.code && (!this.state.pageData || !this.state.pageData.collectionAccountNumber),
       required: true
     }, {
       field: 'applyNote',

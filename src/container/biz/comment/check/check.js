@@ -28,12 +28,6 @@ class Check extends React.Component {
             field: 'content',
             title: '内容'
         }, {
-            field: 'status',
-            title: '状态',
-            type: 'select',
-            key: 'comment_status',
-            search: true
-        }, {
             field: 'nickname',
             title: '评论人'
         }, {
@@ -47,6 +41,9 @@ class Check extends React.Component {
         return this.props.buildList({
             fields,
             pageCode: 628275,
+            searchParams: {
+                status: 'A'
+            },
             btnEvent: {
                 check: (keys, items) => {
                     if (!keys || !keys.length) {
@@ -59,9 +56,6 @@ class Check extends React.Component {
                         this.props.history.push(`/comment/check/addedit?code=${keys[0]}&v=1&check=1`);
                     }
                 }
-            },
-            searchParams: {
-                status: 'A'
             }
         });
     }

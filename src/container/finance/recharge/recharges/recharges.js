@@ -46,7 +46,7 @@ class Recharges extends React.Component {
       key: 'charge_status',
       search: true
     }, {
-      field: 'applyUser',
+      field: 'applyUserName',
       title: '申请人'
     }, {
       field: 'applyDatetime',

@@ -46,7 +46,13 @@ class Orders extends React.Component {
         }, {
             title: '下单人',
             field: 'applyUser',
-            render: (v, d) => `${d.applyUserInfo.nickname}-${d.applyUserInfo.mobile}`
+            render: (v, d) => {
+                let applyUser = d.applyUserInfo.nickname;
+                if (d.applyUserInfo.mobile) {
+                    applyUser += '-' + d.applyUserInfo.mobile;
+                }
+                return applyUser;
+            }
         }, {
             title: '状态',
             field: 'status',
