@@ -35,7 +35,7 @@ class Rules extends React.Component {
       pageCode: 630045,
       rowKey: 'id',
       searchParams: {
-        type: 'WITH'
+        type: 'withdraw'
       }
     });
   }

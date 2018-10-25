@@ -12,6 +12,10 @@ class DataDictAddEdit extends DetailUtil {
   }
   render() {
     const fields = [{
+      field: 'type',
+      value: '1',
+      hidden: true
+    }, {
       title: '父菜单编号',
       field: 'parentKey',
       type: 'select',

@@ -14,6 +14,9 @@ class Account extends React.Component {
   }
   // 资金流水
   goFlow(accountNumber, type) {
+    if(!type) {
+      type = 'P';
+    }
     this.props.history.push(`/platform/account/flows?code=${accountNumber}&type=${type}`);
   }
   // 资金分布

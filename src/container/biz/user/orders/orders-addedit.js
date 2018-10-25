@@ -38,6 +38,7 @@ class OrdersAddEdit extends DetailUtil {
             title: '状态',
             field: 'status',
             key: 'ticket_order_status',
+            type: 'select',
             search: true
         }, {
             title: '下单时间',
