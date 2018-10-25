@@ -87,19 +87,19 @@ class Players extends React.Component {
     }, {
       title: '加油数',
       field: 'ticket_sum',
-      render: (v) => v || 0
+      render: (v, d) => d.ticketSum || 0
     }, {
       title: '关注数',
       field: 'attention_sum',
-      render: (v) => v || 0
+      render: (v, d) => d.attentionSum || 0
     }, {
       title: '分享数',
       field: 'share_sum',
-      render: (v) => v || 0
+      render: (v, d) => d.shareSum || 0
     }, {
       title: '足迹查看次数',
       field: 'scan_sum',
-      render: (v) => v || 0
+      render: (v, d) => d.scanSum || 0
     }];
     let that = this;
     return (

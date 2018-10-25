@@ -45,15 +45,15 @@ class UserFlows extends React.Component {
       search: true
     }, {
       title: '变动金额',
-      field: 'transAmountString',
+      field: 'transAmount',
       amount: true
     }, {
       title: '变动前金额',
-      field: 'preAmountString',
+      field: 'preAmount',
       amount: true
     }, {
       title: '变动后金额',
-      field: 'postAmountString',
+      field: 'postAmount',
       amount: true
     }, {
       title: '状态',
@@ -73,7 +73,7 @@ class UserFlows extends React.Component {
       fields,
       pageCode: 803520,
       searchParams: {
-        type: 'C'
+        accountType: 'C'
       }
     });
   }

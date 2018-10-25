@@ -86,7 +86,8 @@ class InfosAddEdit extends DetailUtil {
       field: 'description',
       type: 'textarea',
       normalArea: true,
-      required: true
+      required: true,
+      maxlength: 50
     }, {
       title: '列表图',
       field: 'listPic',
