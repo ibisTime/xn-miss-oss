@@ -26,13 +26,14 @@ class Withdraw extends React.Component {
   render() {
     const fields = [{
       field: 'code',
-      title: '编号'
+      title: '编号',
+      search: true
     }, {
       field: 'type',
       title: '角色类型',
       type: 'select',
-      key: 'account_type',
-      search: true
+      key: 'account_type'
+      // search: true
     }, {
       field: 'payCardInfo',
       title: '银行类型'
@@ -41,8 +42,8 @@ class Withdraw extends React.Component {
       title: '银行卡号'
     }, {
       field: 'accountName',
-      title: '户名',
-      search: true
+      title: '户名'
+      // search: true
     }, {
       field: 'amount',
       title: '取现金额',
@@ -62,8 +63,8 @@ class Withdraw extends React.Component {
       title: '申请时间',
       type: 'date',
       rangedate: ['applyDateStart', 'applyDateEnd'],
-      render: dateTimeFormat,
-      search: true
+      render: dateTimeFormat
+      // search: true
     }, {
       field: 'approveUser',
       title: '审核人'
@@ -72,8 +73,8 @@ class Withdraw extends React.Component {
       title: '审核时间',
       type: 'date',
       rangedate: ['approveDateStart', 'approveDateEnd'],
-      render: dateTimeFormat,
-      search: true
+      render: dateTimeFormat
+      // search: true
     }, {
       field: 'payUser',
       title: '回录人'
@@ -86,8 +87,8 @@ class Withdraw extends React.Component {
       title: '回录时间',
       type: 'date',
       rangedate: ['payDateStart', 'payDateEnd'],
-      render: dateTimeFormat,
-      search: true
+      render: dateTimeFormat
+      // search: true
     }];
     const btnEvent = {
       apply: (keys, items) => {

@@ -40,15 +40,15 @@ class FlowsAddedit extends DetailUtil {
       field: 'bizNote'
     }, {
       title: '变动金额',
-      field: 'transAmountString',
+      field: 'transAmount',
       amount: true
     }, {
       title: '变动前金额',
-      field: 'preAmountString',
+      field: 'preAmount',
       amount: true
     }, {
       title: '变动后金额',
-      field: 'postAmountString',
+      field: 'postAmount',
       amount: true
     }, {
       title: '状态',

@@ -61,7 +61,7 @@ class Soaring extends React.Component {
     return this.props.buildList({
       fields,
       pageCode: 640025,
-      searchParams: { type: 2 },
+      searchParams: { type: 1 },
       btnEvent: {
         // 调节
         adjust: (keys, items) => {

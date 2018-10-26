@@ -33,8 +33,8 @@ class Accounts extends React.Component {
       field: 'currency',
       title: '币种',
       type: 'select',
-      key: 'currency',
-      search: true
+      key: 'currency'
+      // search: true
     }, {
       field: 'status',
       title: '状态',
@@ -54,8 +54,8 @@ class Accounts extends React.Component {
       title: '创建时间',
       type: 'date',
       render: dateTimeFormat,
-      rangedate: ['dateStart', 'dateEnd'],
-      search: true
+      rangedate: ['dateStart', 'dateEnd']
+      // search: true
     }];
     return this.props.buildList({
       fields,

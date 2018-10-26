@@ -58,7 +58,7 @@ class Ranking extends React.Component {
     return this.props.buildList({
       fields,
       pageCode: 640025,
-      searchParams: { type: 1 },
+      searchParams: { type: 2 },
       btnEvent: {
         // 调节
         adjust: (keys, items) => {

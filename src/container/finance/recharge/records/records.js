@@ -24,11 +24,12 @@ class Records extends React.Component {
   render() {
     const fields = [{
       field: 'code',
-      title: '编号'
+      title: '编号',
+      search: true
     }, {
       field: 'accountName',
-      title: '户名',
-      search: true
+      title: '户名'
+      // search: true
     }, {
       field: 'amount',
       title: '充值金额',
@@ -40,15 +41,15 @@ class Records extends React.Component {
       key: 'charge_status',
       search: true
     }, {
-      field: 'applyUser',
+      field: 'applyUserName',
       title: '申请人'
     }, {
       field: 'applyDatetime',
       title: '申请时间',
       render: dateTimeFormat,
       type: 'date',
-      rangedate: ['applyDateStart', 'applyDateEnd'],
-      search: true
+      rangedate: ['applyDateStart', 'applyDateEnd']
+      // search: true
     }, {
       field: 'payUserName',
       title: '审核人'
@@ -57,8 +58,8 @@ class Records extends React.Component {
       title: '审核时间',
       render: dateTimeFormat,
       type: 'date',
-      rangedate: ['payDateStart', 'payDateEnd'],
-      search: true
+      rangedate: ['payDateStart', 'payDateEnd']
+      // search: true
     }];
     return this.props.buildList({
       fields,

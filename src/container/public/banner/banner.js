@@ -55,8 +55,8 @@ class Banner extends React.Component {
   render() {
     const fields = [{
       title: '名称',
-      field: 'name',
-      search: true
+      field: 'name'
+      // search: true
     }, {
       title: '状态',
       field: 'status',
@@ -72,7 +72,8 @@ class Banner extends React.Component {
         dvalue: '已下架'
       }],
       keyName: 'dkey',
-      valueName: 'dvalue'
+      valueName: 'dvalue',
+      search: true
     }, {
       title: 'UI位置',
       field: 'location',

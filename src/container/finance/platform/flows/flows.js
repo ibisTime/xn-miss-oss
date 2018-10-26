@@ -24,8 +24,8 @@ class PlatformFlows extends React.Component {
   render() {
     const fields = [{
       title: '户名',
-      field: 'realName',
-      search: true
+      field: 'realName'
+      // search: true
     }, {
       title: '币种',
       field: 'currency',
@@ -45,15 +45,15 @@ class PlatformFlows extends React.Component {
       search: true
     }, {
       title: '变动金额',
-      field: 'transAmountString',
+      field: 'transAmount',
       amount: true
     }, {
       title: '变动前金额',
-      field: 'preAmountString',
+      field: 'preAmount',
       amount: true
     }, {
       title: '变动后金额',
-      field: 'postAmountString',
+      field: 'postAmount',
       amount: true
     }, {
       title: '状态',
@@ -66,14 +66,14 @@ class PlatformFlows extends React.Component {
       field: 'createDatetime',
       type: 'date',
       rangedate: ['createDatetimeStart', 'createDatetimeEnd'],
-      render: dateTimeFormat,
-      search: true
+      render: dateTimeFormat
+      // search: true
     }];
     return this.props.buildList({
       fields,
       pageCode: 803520,
       searchParams: {
-        type: 'P'
+        accountType: 'P'
       }
     });
   }

@@ -24,8 +24,8 @@ class UserFlows extends React.Component {
   render() {
     const fields = [{
       title: '户名',
-      field: 'realName',
-      search: true
+      field: 'realName'
+      // search: true
     }, {
       title: '币种',
       field: 'currency',
@@ -66,8 +66,8 @@ class UserFlows extends React.Component {
       field: 'createDatetime',
       type: 'date',
       rangedate: ['createDatetimeStart', 'createDatetimeEnd'],
-      render: dateTimeFormat,
-      search: true
+      render: dateTimeFormat
+      // search: true
     }];
     return this.props.buildList({
       fields,

@@ -3,7 +3,7 @@ import ModalDetail from 'common/js/build-modal-detail';
 
 class UpDown extends React.Component {
   render() {
-    let { code, key = 'code', biz, onOk, hideLoc, locKey, list } = this.props;
+    let { code, key = 'code', biz, onOk, hideLoc, hideOrderNo, locKey, list } = this.props;
     let locationField = {
       field: 'location',
       title: 'UI位置',
@@ -39,6 +39,7 @@ class UpDown extends React.Component {
       required: true,
       help: '数字越小，排序越靠前',
       integer: true,
+      hidden: hideOrderNo,
       maxlength: 30
     }];
 

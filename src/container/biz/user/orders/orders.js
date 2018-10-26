@@ -25,8 +25,7 @@ class Orders extends React.Component {
     render() {
         const fields = [{
             title: '订单编号',
-            field: 'code',
-            search: true
+            field: 'code'
         }, {
             title: '选手编号',
             field: 'matchPlayCode',

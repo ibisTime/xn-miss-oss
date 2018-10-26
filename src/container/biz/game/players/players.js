@@ -66,7 +66,9 @@ class Players extends React.Component {
       field: 'match',
       type: 'select',
       key: 'match',
-      search: true
+      keyName: 'dvalue',
+      valueName: 'dvalue'
+      // search: true
     }, {
       title: '籍贯',
       field: 'nativePlace'

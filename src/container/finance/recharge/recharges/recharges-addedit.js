@@ -57,6 +57,9 @@ class RechargesAddEdit extends DetailUtil {
       field: 'collectionAccountNumber',
       type: 'select',
       listCode: 802026,
+      params: {
+        status: '1'
+      },
       keyName: 'code',
       valueName: '{{bankName.DATA}}-{{bankcardNumber.DATA}}',
       hidden: !!this.code && (!this.state.pageData || !this.state.pageData.collectionAccountNumber),

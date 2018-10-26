@@ -36,13 +36,16 @@ class UnRead extends React.Component {
       field: 'user1Nickname',
       title: '昵称'
     }, {
-      field: 'unreadSum',
+      field: 'user2UnreadSum',
       title: '未读消息数量',
       render: v => v || 0
     }];
     return this.props.buildList({
       fields,
       pageCode: 640105,
+      searchParams: {
+        user2: 'SYS_USER'
+      },
       btnEvent: {
         reply: (keys, items) => {
           if (!keys || !keys.length) {

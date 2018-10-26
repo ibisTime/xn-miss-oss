@@ -56,6 +56,8 @@ class InfosAddEdit extends DetailUtil {
       field: 'match',
       type: 'select',
       key: 'match',
+      keyName: 'dvalue',
+      valueName: 'dvalue',
       required: true
     }, {
       title: '籍贯',
@@ -87,7 +89,7 @@ class InfosAddEdit extends DetailUtil {
       type: 'textarea',
       normalArea: true,
       required: true,
-      maxlength: 50
+      maxlength: 200
     }, {
       title: '列表图',
       field: 'listPic',
@@ -139,7 +141,9 @@ class InfosAddEdit extends DetailUtil {
         title: '保存',
         type: 'primary',
         check: true,
-        handler: (params) => this.saveOrSend(0, params)
+        handler: (params) => {
+          this.saveOrSend(0, params);
+        }
       }, {
         title: '提交审核',
         type: 'primary',
