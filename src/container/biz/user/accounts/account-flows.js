@@ -78,7 +78,6 @@ class UserAccountFlows extends React.Component {
       fields,
       pageCode: 803520,
       searchParams: {
-        accountType: this.type,
         accountNumber: this.accountNumber
       },
       buttons: [{

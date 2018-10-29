@@ -49,7 +49,17 @@ class InfosAddEdit extends DetailUtil {
       field: 'content',
       type: 'textarea',
       required: true
-    }];
+    }
+    //   {
+    //   title: '备注',
+    //   field: 'remark1',
+    //   formatter: (v, d) => {
+    //     return d.remark;
+    //   },
+    //   hidden: this.check || this.view || !this.code,
+    //   readonly: this.view
+    // }
+    ];
     let config = {
       code: this.code,
       view: this.view,
@@ -68,12 +78,14 @@ class InfosAddEdit extends DetailUtil {
         title: '更新时间',
         field: 'updateDatetime',
         type: 'datetime'
-      }, {
-        title: '备注',
-        field: 'remark',
-        readonly: !this.check
       }]);
     }
+    fields = fields.concat([{
+      title: '备注',
+      field: 'remark',
+      // readonly: !this.check
+      readonly: this.view && !this.check
+    }]);
     config.fields = fields;
     // 新增、修改
     if (!this.code || (!this.check && !this.view)) {

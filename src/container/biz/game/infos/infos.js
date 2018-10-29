@@ -11,7 +11,7 @@ import {
   setSearchData
 } from '@redux/biz/game/infos';
 import { listWrapper } from 'common/js/build-list';
-import { showWarnMsg, showSucMsg, getUserId } from 'common/js/util';
+import { showWarnMsg, showSucMsg, getUserId, getUserName } from 'common/js/util';
 import fetch from 'common/js/fetch';
 import UpDown from 'component/up-down/up-down';
 
@@ -43,7 +43,7 @@ class Infos extends React.Component {
       content: `确认下架该赛事吗？`,
       onOk: () => {
         this.props.doFetching();
-        return fetch(805304, { code, updater: getUserId() }).then(() => {
+        return fetch(805304, { code, updater: getUserName() }).then(() => {
           this.props.getPageData();
           showWarnMsg('操作成功');
         }).catch(() => {

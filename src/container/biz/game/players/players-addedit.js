@@ -128,12 +128,14 @@ class InfosAddEdit extends DetailUtil {
         title: '更新时间',
         field: 'updateDatetime',
         type: 'datetime'
-      }, {
-        title: '备注',
-        field: 'remark',
-        readonly: !this.check
       }]);
     }
+    fields = fields.concat([{
+      title: '备注',
+      field: 'remark',
+      // readonly: !this.check
+      readonly: this.view && !this.check
+    }]);
     config.fields = fields;
     // 新增、修改
     if (!this.code || (!this.check && !this.view)) {

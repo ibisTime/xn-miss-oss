@@ -114,11 +114,11 @@ class RankingAddEdit extends React.Component {
             field: 'playerCname',
             formatter: (v, d) => `${d.player.cname}-${d.player.ename}`
         }, {
-            title: '加油数',
+            title: '投票数',
             field: 'ticketSum',
             formatter: (v) => v || 0
         }, {
-            title: '虚拟加油数',
+            title: '虚拟投票数',
             field: 'fakeTicketSum',
             formatter: (v) => v || 0
         }, {

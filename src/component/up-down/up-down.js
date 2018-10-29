@@ -52,7 +52,7 @@ class UpDown extends React.Component {
     }
     return (
       <ModalDetail
-        title='修改密码'
+        title='上架'
         visible={this.props.updownVisible}
         hideModal={() => this.props.setModalVisible(false)}
         options={options} />

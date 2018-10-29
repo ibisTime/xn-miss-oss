@@ -190,12 +190,12 @@ const ROUTES = [
     path: '/user/follow',
     component: asyncComponent(() => import('container/biz/user/follow/follow'))
   },
-  // 业务管理 -- 用户管理 -- 加油订单查询
+  // 业务管理 -- 用户管理 -- 投票订单查询
   {
     path: '/user/orders',
     component: asyncComponent(() => import('container/biz/user/orders/orders'))
   },
-  // 业务管理 -- 用户管理 -- 加油订单查询 -- 详情
+  // 业务管理 -- 用户管理 -- 投票订单查询 -- 详情
   {
     path: '/user/orders/addedit',
     component: asyncComponent(() => import('container/biz/user/orders/orders-addedit'))

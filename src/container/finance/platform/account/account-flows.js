@@ -67,9 +67,16 @@ class PlatformAccountFlows extends React.Component {
       search: true
     }, {
       title: '创建时间',
+      field: 'createDatetime1',
+      formatter: (v, d) => {
+        return d.createDatetime;
+      },
+      noVisible: true
+    }, {
+      title: '创建时间',
       field: 'createDatetime',
       type: 'date',
-      rangedate: ['createDatetimeStart', 'createDatetimeEnd'],
+      rangedate: ['dateStart', 'dateEnd'],
       render: dateTimeFormat,
       search: true
     }];

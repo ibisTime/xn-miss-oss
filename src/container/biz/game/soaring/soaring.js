@@ -38,11 +38,11 @@ class Soaring extends React.Component {
       field: 'playerCname',
       render: (v, d) => `${d.player.cname}-${d.player.ename}`
     }, {
-      title: '加油数',
+      title: '投票数',
       field: 'ticketSum',
       render: (v) => v || 0
     }, {
-      title: '虚拟加油数',
+      title: '虚拟投票数',
       field: 'fakeTicketSum',
       render: (v) => v || 0
     }, {

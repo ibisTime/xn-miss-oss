@@ -30,7 +30,7 @@ class SysParamAddEdit extends DetailUtil {
     }, {
       title: '参数值',
       field: 'cvalue',
-      type: 'textarea'
+      type: this.textareaFlag ? 'textarea' : 'text'
     }, {
       title: '最近修改时间',
       field: 'updateDatetime',

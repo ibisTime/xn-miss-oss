@@ -87,7 +87,7 @@ class Players extends React.Component {
       key: 'player_status',
       search: true
     }, {
-      title: '加油数',
+      title: '投票数',
       field: 'ticket_sum',
       render: (v, d) => d.ticketSum || 0
     }, {
